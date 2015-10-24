@@ -1,7 +1,7 @@
 
-NovaCoin official development tree
+official Scryptic development repo
 
-NovaCoin - a hybrid scrypt PoW + PoS based cryptocurrency.
+Scryptic - a hybrid scrypt PoW + PoS based cryptocurrency.
 
 * 10 minutes stake spacing
 * 30 minutes PoW spacing
