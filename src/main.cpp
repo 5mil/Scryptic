@@ -42,12 +42,12 @@ uint256 nPoWBase = uint256("0x00000000ffff00000000000000000000000000000000000000
 
 CBigNum bnProofOfWorkLimitTestNet(~uint256(0) >> 16);
 
-unsigned int nStakeMinAge = 30 * nOneDay; // 30 days as zero time weight
-unsigned int nStakeMaxAge = 90 * nOneDay; // 90 days as full weight
-unsigned int nStakeTargetSpacing = 10 * 60; // 10-minute stakes spacing
-unsigned int nModifierInterval = 6 * nOneHour; // time to elapse before new modifier is computed
+unsigned int nStakeMinAge = 1 * nOneDay; // 1 day as zero time weight
+unsigned int nStakeMaxAge = 2 * nOneDay; // 2 days as full weight
+unsigned int nStakeTargetSpacing = 5 * 60; // 5-minute stakes spacing
+unsigned int nModifierInterval = 3 * nOneHour; // time to elapse before new modifier is computed
 
-int nCoinbaseMaturity = 500;
+int nCoinbaseMaturity = 50;
 
 CBlockIndex* pindexGenesisBlock = NULL;
 int nBestHeight = -1;
@@ -73,7 +73,7 @@ map<uint256, set<uint256> > mapOrphanTransactionsByPrev;
 // Constant stuff for coinbase transactions we create:
 CScript COINBASE_FLAGS;
 
-const string strMessageMagic = "NovaCoin Signed Message:\n";
+const string strMessageMagic = " Signed Message:\n";
 
 // Settings
 int64_t nTransactionFee = MIN_TX_FEE;
