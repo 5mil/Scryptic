@@ -43,8 +43,8 @@ static const int64_t MIN_TX_FEE = CENT/10;
 static const int64_t MIN_RELAY_TX_FEE = CENT/50;
 
 static const int64_t MAX_MONEY = 2000000000 * COIN;
-static const int64_t MAX_MINT_PROOF_OF_WORK = 100 * COIN;
-static const int64_t MAX_MINT_PROOF_OF_STAKE = 1 * COIN;
+static const int64_t MAX_MINT_PROOF_OF_WORK = 1000 * COIN;
+static const int64_t MAX_MINT_PROOF_OF_STAKE = 10000000 * COIN;
 static const int64_t MIN_TXOUT_AMOUNT = CENT/100;
 
 
@@ -572,7 +572,7 @@ public:
      */
     unsigned int GetP2SHSigOpCount(const MapPrevTx& mapInputs) const;
 
-    /** Amount of bitcoins spent by this transaction.
+    /** Amount of Sprockets spent by this transaction.
         @return sum of all outputs (note: does not include fees)
      */
     int64_t GetValueOut() const
