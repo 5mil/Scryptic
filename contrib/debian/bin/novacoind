@@ -4,11 +4,11 @@ set -e
 
 umask 077
 
-basedir=~/.Scryptic
-cfgfile="$basedir/Scryptic.conf"
+basedir=~/.scryptic
+cfgfile="$basedir/scryptic.conf"
 
 [ -e "$basedir" ] || mkdir "$basedir"
 
 [ -e "$cfgfile" ] || perl -le 'print"rpcpassword=",map{(a..z,A..Z,0..9)[rand 62]}0..9' > "$cfgfile"
 
-exec /usr/lib/Scryptic/Scrypticd "$@"
+exec /usr/lib/scryptic/scrypticd "$@"

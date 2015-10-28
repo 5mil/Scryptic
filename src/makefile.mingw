@@ -90,7 +90,7 @@ OBJS= \
     obj/kernel.o \
     obj/kernel_worker.o
 
-all: Scrypticd.exe
+all: scrypticd.exe
 
 #
 # LevelDB support
@@ -156,11 +156,11 @@ endif
 obj/%.o: %.cpp $(HEADERS)
 	g++ -c $(CFLAGS) -o $@ $<
 
-Scrypticd.exe: $(OBJS:obj/%=obj/%)
+scrypticd.exe: $(OBJS:obj/%=obj/%)
 	g++ $(CFLAGS) $(LDFLAGS) -o $@ $(LIBPATHS) $^ $(LIBS)
 
 clean:
-	-del /Q Scrypticd
+	-del /Q scrypticd
 	-del /Q obj\*
 	-del /Q crypto\scrypt\asm\obj\*
 	-del /Q crypto\sha2\asm\obj\*

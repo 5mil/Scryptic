@@ -1,19 +1,19 @@
-.TH ScrypticD "7" "April 2013" "Scrypticd 3.19" 
+.TH scrypticD "7" "April 2013" "scrypticd 3.19" 
 .SH NAME
-Scrypticd \- peer-to-peer network based digital currency
+scrypticd \- peer-to-peer network based digital currency
 .SH SYNOPSIS
-Scryptic [options] <command> [params]  
+scryptic [options] <command> [params]  
 .TP
-Scryptic [options] help <command> - Get help for a command
+scryptic [options] help <command> - Get help for a command
 .SH DESCRIPTION
-This  manual page documents the Scrypticd program. Scryptic is a peer-to-peer digital currency. Peer-to-peer (P2P) means that there is no central authority to issue new money or keep track of transactions. Instead, these tasks are managed collectively by the nodes of the network. Advantages:
+This  manual page documents the scrypticd program. scryptic is a peer-to-peer digital currency. Peer-to-peer (P2P) means that there is no central authority to issue new money or keep track of transactions. Instead, these tasks are managed collectively by the nodes of the network. Advantages:
 
-Scryptics can be sent easily through the Internet, without having to trust middlemen. Transactions are designed to be irreversible. Be safe from instability caused by fractional reserve banking and central banks. The limited inflation of the Scryptic system’s money supply is distributed evenly (by CPU power) throughout the network, not monopolized by banks.
+scryptics can be sent easily through the Internet, without having to trust middlemen. Transactions are designed to be irreversible. Be safe from instability caused by fractional reserve banking and central banks. The limited inflation of the scryptic system’s money supply is distributed evenly (by CPU power) throughout the network, not monopolized by banks.
 
 .SH OPTIONS
 .TP
 \fB\-conf=\fR<file>
-Specify configuration file (default: Scryptic.conf)
+Specify configuration file (default: scryptic.conf)
 .TP
 \fB\-gen\fR
 Generate coins
@@ -84,14 +84,14 @@ This help message
 \fBbackupwallet 'destination'\fR
 Safely copies *wallet.dat* to 'destination', which can be a directory or a path with filename.
 .TP
-\fBgetaccount 'Scrypticaddress'\fR
+\fBgetaccount 'scrypticaddress'\fR
 Returns the account associated with the given address.
 .TP
-\fBsetaccount 'Scrypticaddress' ['account']\fR
+\fBsetaccount 'scrypticaddress' ['account']\fR
 Sets the ['account'] associated with the given address. ['account'] may be omitted to remove an address from ['account'].
 .TP
 \fBgetaccountaddress 'account'\fR
-Returns a new Scryptic address for 'account'.
+Returns a new scryptic address for 'account'.
 .TP
 \fBgetaddressesbyaccount 'account'\fR
 Returns the list of addresses associated with the given 'account'.
@@ -112,7 +112,7 @@ Returns the number of connections to other nodes.
 Returns the proof-of-work difficulty as a multiple of the minimum difficulty.
 .TP
 \fBgetgenerate\fR
-Returns boolean true if server is trying to generate Scryptics, false otherwise.
+Returns boolean true if server is trying to generate scryptics, false otherwise.
 .TP
 \fBsetgenerate 'generate' ['genproclimit']\fR
 Generation is limited to ['genproclimit'] processors, -1 is unlimited.
@@ -124,13 +124,13 @@ Returns a recent hashes per second performance measurement while generating.
 Returns an object containing server information.
 .TP
 \fBgetnewaddress 'account'\fR
-Returns a new Scryptic address for receiving payments. If 'account' is specified (recommended), it is added to the address book so payments received with the address will be credited to 'account'.
+Returns a new scryptic address for receiving payments. If 'account' is specified (recommended), it is added to the address book so payments received with the address will be credited to 'account'.
 .TP
 \fBgetreceivedbyaccount 'account' ['minconf=1']\fR
 Returns the total amount received by addresses associated with 'account' in transactions with at least ['minconf'] confirmations.
 .TP
-\fBgetreceivedbyaddress 'Scrypticaddress' ['minconf=1']\fR
-Returns the total amount received by 'Scrypticaddress' in transactions with at least ['minconf'] confirmations.
+\fBgetreceivedbyaddress 'scrypticaddress' ['minconf=1']\fR
+Returns the total amount received by 'scrypticaddress' in transactions with at least ['minconf'] confirmations.
 .TP
 \fBgettransaction 'txid'\fR
 Returns information about a specific transaction, given hexadecimal transaction ID.
@@ -179,26 +179,26 @@ Returns a list of the last ['count'] transactions for 'account' - for all accoun
 \fBmove <'fromaccount'> <'toaccount'> <'amount'> ['minconf=1'] ['comment']\fR
 Moves funds between accounts.
 .TP
-\fBsendfrom* <'account'> <'Scrypticaddress'> <'amount'> ['minconf=1'] ['comment'] ['comment-to']\fR
-Sends amount from account's balance to 'Scrypticaddress'. This method will fail if there is less than amount Scryptics with ['minconf'] confirmations in the account's balance (unless account is the empty-string-named default account; it behaves like the *sendtoaddress* method). Returns transaction ID on success.
+\fBsendfrom* <'account'> <'scrypticaddress'> <'amount'> ['minconf=1'] ['comment'] ['comment-to']\fR
+Sends amount from account's balance to 'scrypticaddress'. This method will fail if there is less than amount scryptics with ['minconf'] confirmations in the account's balance (unless account is the empty-string-named default account; it behaves like the *sendtoaddress* method). Returns transaction ID on success.
 .TP     
-\fBsendtoaddress 'Scrypticaddress' 'amount' ['comment'] ['comment-to']\fR
-Sends amount from the server's available balance to 'Scrypticaddress'. amount is a real and is rounded to the nearest 0.01. Returns transaction id on success.
+\fBsendtoaddress 'scrypticaddress' 'amount' ['comment'] ['comment-to']\fR
+Sends amount from the server's available balance to 'scrypticaddress'. amount is a real and is rounded to the nearest 0.01. Returns transaction id on success.
 .TP    
 \fBstop\fR
-Stops the Scryptic server.
+Stops the scryptic server.
 .TP    
-\fBvalidateaddress 'Scrypticaddress'\fR
-Checks that 'Scrypticaddress' looks like a proper Scryptic address. Returns an object containing:
+\fBvalidateaddress 'scrypticaddress'\fR
+Checks that 'scrypticaddress' looks like a proper scryptic address. Returns an object containing:
 
     "isvalid" : true or false.
     "ismine"  : true if the address is in the server's wallet.
-    "address" : Scrypticaddress.
+    "address" : scrypticaddress.
 
     *note: ismine and address are only returned if the address is valid.
 
 .SH "SEE ALSO"
-Scryptic.conf(5)
+scryptic.conf(5)
 .SH AUTHOR
 This manual page was written by Micah Anderson <micah@debian.org> for the Debian system (but may be used by others). Permission is granted to copy, distribute and/or modify this document under the terms of the GNU General Public License, Version 3 or any later version published by the Free Software Foundation.
 

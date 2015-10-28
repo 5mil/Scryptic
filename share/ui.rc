@@ -1,4 +1,4 @@
-Scryptic               ICON    "pixmaps/Scryptic.ico"
+scryptic               ICON    "pixmaps/scryptic.ico"
 
 #include "wx/msw/wx.rc"
 

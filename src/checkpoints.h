@@ -66,7 +66,7 @@ namespace Checkpoints
     bool IsMatureSyncCheckpoint();
 }
 
-// Scryptic: synchronized checkpoint
+// scryptic: synchronized checkpoint
 class CUnsignedSyncCheckpoint
 {
 public:

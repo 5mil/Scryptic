@@ -1,11 +1,11 @@
 Format: http://svn.debian.org/wsvn/dep/web/deps/dep5.mdwn?rev=174
-Upstream-Name: Scryptic
+Upstream-Name: scryptic
 Upstream-Contact: Alex D. <balthazar.ad@gmail.com>
-Source: http://sourceforge.net/projects/Scryptic/files/
- https://github.com/Scryptic-project/Scryptic
+Source: http://sourceforge.net/projects/scryptic/files/
+ https://github.com/scryptic-project/scryptic
 
 Files: *
-Copyright: 2012-2015, Scryptic Developers
+Copyright: 2012-2015, scryptic Developers
 License: Expat
 
 Files: *

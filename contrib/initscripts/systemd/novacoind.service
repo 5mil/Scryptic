@@ -1,11 +1,11 @@
 [Unit]
-Description=Scryptic daemon serivce
+Description=scryptic daemon serivce
 After=network.target
 
 [Service]
 Type=simple
-User=Scryptic
-ExecStart=/opt/Scryptic/Scrypticd
+User=scryptic
+ExecStart=/opt/scryptic/scrypticd
 
 [Install]
 WantedBy=multi-user.target

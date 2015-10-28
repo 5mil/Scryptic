@@ -1,8 +1,8 @@
-// Copyright (c) 2012-2013 The Scryptic developers
+// Copyright (c) 2012-2013 The scryptic developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
-#ifndef Scryptic_KERNEL_H
-#define Scryptic_KERNEL_H
+#ifndef scryptic_KERNEL_H
+#define scryptic_KERNEL_H
 
 #include "main.h"
 #include "wallet.h"
@@ -59,4 +59,4 @@ inline int64_t GetWeight(int64_t nIntervalBeginning, int64_t nIntervalEnd)
 }
 
 
-#endif // Scryptic_KERNEL_H
+#endif // scryptic_KERNEL_H

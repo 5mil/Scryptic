@@ -1,5 +1,5 @@
 /* XPM */
-static char *Scryptic_80[] = {
+static char *scryptic_80[] = {
 /* columns rows colors chars-per-pixel */
 "80 80 253 2 ",
 "   c #7A4B09",

@@ -100,7 +100,7 @@ OBJS= \
     obj/kernel.o \
     obj/kernel_worker.o
 
-all: Scrypticd.exe
+all: scrypticd.exe
 
 #
 # LevelDB support
@@ -173,12 +173,12 @@ DEFS += -DHAVE_BUILD_INFO
 obj/%.o: %.cpp $(HEADERS)
 	$(CXX) -c $(CFLAGS) -o $@ $<
 
-Scrypticd.exe: $(OBJS:obj/%=obj/%)
+scrypticd.exe: $(OBJS:obj/%=obj/%)
 	$(CXX) $(CFLAGS) $(LDFLAGS) -o $@ $(LIBPATHS) $^ $(LIBS) -lshlwapi
-	$(STRIP) Scrypticd.exe
+	$(STRIP) scrypticd.exe
 
 clean:
-	-rm -f Scrypticd.exe
+	-rm -f scrypticd.exe
 	-rm -f obj/*.o
 	-rm -f obj/*.P
 	-rm -f obj/*.d

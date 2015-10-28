@@ -6,7 +6,7 @@ inherit db-use eutils fdo-mime gnome2-utils kde4-functions qt4-r2
 
 DB_VER="4.8"
 
-DESCRIPTION="Scryptic - a hybrid PoW+PoS energy efficient p2p-cryptocurrency and electronic payment system."
+DESCRIPTION="scryptic - a hybrid PoW+PoS energy efficient p2p-cryptocurrency and electronic payment system."
 HOMEPAGE="https://novaco.in/"
 SRC_URI="https://github.com/${PN}-project/${PN}/archive/stp-v${PV}.tar.gz -> ${PN}-${PV}.tar.gz"
 
@@ -82,13 +82,13 @@ src_install() {
 	dobin ${PN}-qt
 
 	insinto /usr/share/pixmaps
-	newins "src/qt/res/icons/Scryptic-128.png" "${PN}.png"
+	newins "src/qt/res/icons/scryptic-128.png" "${PN}.png"
 
-	make_desktop_entry "${PN}-qt" "Scryptic" "/usr/share/pixmaps/${PN}.png" "Network;P2P;Finance;"
+	make_desktop_entry "${PN}-qt" "scryptic" "/usr/share/pixmaps/${PN}.png" "Network;P2P;Finance;"
 
 	if use kde; then
 		insinto /usr/share/kde4/services
-		newins contrib/debian/Scryptic-qt.protocol ${PN}.protocol
+		newins contrib/debian/scryptic-qt.protocol ${PN}.protocol
 	fi
 }
 

@@ -1,5 +1,5 @@
 src/*.exe
-src/Scrypticd
+src/scrypticd
 src/build.h
 .*.swp
 *.*~*
@@ -8,11 +8,11 @@ src/build.h
 *.orig
 *.o
 *.patch
-.Scryptic
+.scryptic
 #compilation and Qt preprocessor part
 *.qm
 Makefile
-Scryptic-qt
+scryptic-qt
 #resources cpp
 qrc_*.cpp
 #qt creator

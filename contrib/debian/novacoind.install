@@ -1,2 +1,2 @@
-debian/bin/Scrypticd usr/bin
-src/Scrypticd usr/lib/Scryptic
+debian/bin/scrypticd usr/bin
+src/scrypticd usr/lib/scryptic

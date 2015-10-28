@@ -1,4 +1,4 @@
-Source: Scryptic
+Source: scryptic
 Section: utils
 Priority: optional
 Maintainer: Alex D. <balthazar.ad@gmail.com>
@@ -18,14 +18,14 @@ Build-Depends: debhelper,
  libqrencode-dev
 Standards-Version: 3.9.2
 Homepage: http://www.novaco.in/
-Vcs-Git: git://github.com/Scryptic-project/Scryptic.git
-Vcs-Browser: http://github.com/Scryptic-project/Scryptic
+Vcs-Git: git://github.com/scryptic-project/scryptic.git
+Vcs-Browser: http://github.com/scryptic-project/scryptic
 
-Package: Scrypticd
+Package: scrypticd
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer network based digital currency - daemon
- Scryptic is a free open source peer-to-peer electronic cash system that
+ scryptic is a free open source peer-to-peer electronic cash system that
  is completely decentralized, without the need for a central server or
  trusted parties.  Users hold the crypto keys to their own money and
  transact directly with each other, with the help of a P2P network to
@@ -36,14 +36,14 @@ Description: peer-to-peer network based digital currency - daemon
  Full transaction history is stored locally at each client.  This
  requires 150+ MiB of space, slowly growing.
  .
- This package provides Scrypticd, a combined daemon and CLI tool to
+ This package provides scrypticd, a combined daemon and CLI tool to
  interact with the daemon.
 
-Package: Scryptic-qt
+Package: scryptic-qt
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer network based digital currency - Qt GUI
- Scryptic is a free open source peer-to-peer electronic cash system that
+ scryptic is a free open source peer-to-peer electronic cash system that
  is completely decentralized, without the need for a central server or
  trusted parties.  Users hold the crypto keys to their own money and
  transact directly with each other, with the help of a P2P network to
@@ -54,4 +54,4 @@ Description: peer-to-peer network based digital currency - Qt GUI
  Full transaction history is stored locally at each client.  This
  requires 150+ MiB of space, slowly growing.
  .
- This package provides Scryptic-Qt, a GUI for Scryptic based on Qt.
+ This package provides scryptic-Qt, a GUI for scryptic based on Qt.

@@ -461,7 +461,7 @@ void ThreadNtpSamples(void* parg) {
     vnThreadsRunning[THREAD_NTP]++;
 
     // Make this thread recognisable as time synchronization thread
-    RenameThread("Scryptic-ntp-samples");
+    RenameThread("scryptic-ntp-samples");
 
     CMedianFilter<int64_t> vTimeOffsets(200,0);
 
@@ -517,10 +517,10 @@ void ThreadNtpSamples(void* parg) {
         if (GetNodesOffset() == INT_MAX && abs64(nNtpOffset) > 40 * 60)
         {
             // If there is not enough node offsets data and NTP time offset is greater than 40 minutes then give a warning.
-            std::string strMessage = _("Warning: Please check that your computer's date and time are correct! If your clock is wrong Scryptic will not work properly.");
+            std::string strMessage = _("Warning: Please check that your computer's date and time are correct! If your clock is wrong scryptic will not work properly.");
             strMiscWarning = strMessage;
             printf("*** %s\n", strMessage.c_str());
-            uiInterface.ThreadSafeMessageBox(strMessage+" ", std::string("Scryptic"), CClientUIInterface::OK | CClientUIInterface::ICON_EXCLAMATION);
+            uiInterface.ThreadSafeMessageBox(strMessage+" ", std::string("scryptic"), CClientUIInterface::OK | CClientUIInterface::ICON_EXCLAMATION);
         }
 
         printf("nNtpOffset = %+" PRId64 "  (%+" PRId64 " minutes)\n", nNtpOffset, nNtpOffset/60);

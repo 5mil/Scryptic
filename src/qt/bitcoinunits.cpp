@@ -45,9 +45,9 @@ QString BitcoinUnits::description(int unit)
 {
     switch(unit)
     {
-    case BTC: return QString(QObject::tr("Scryptics"));
-    case mBTC: return QString(QObject::tr("Milli-Scryptics (1 / 1,000)"));
-    case uBTC: return QString(QObject::tr("Micro-Scryptics (1 / 1,000,000)"));
+    case BTC: return QString(QObject::tr("scryptics"));
+    case mBTC: return QString(QObject::tr("Milli-scryptics (1 / 1,000)"));
+    case uBTC: return QString(QObject::tr("Micro-scryptics (1 / 1,000,000)"));
     default: return QString("???");
     }
 }

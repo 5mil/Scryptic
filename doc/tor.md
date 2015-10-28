@@ -1,16 +1,16 @@
-TOR SUPPORT IN Scryptic
+TOR SUPPORT IN scryptic
 ======================
 
-It is possible to run Scryptic as a Tor hidden service, and connect to such services.
+It is possible to run scryptic as a Tor hidden service, and connect to such services.
 
 The following directions assume you have a Tor proxy running on port 9050. Many distributions default to having a SOCKS proxy listening on port 9050, but others may not. In particular, the Tor Browser Bundle defaults to listening on a random port. See [Tor Project FAQ:TBBSocksPort](https://www.torproject.org/docs/faq.html.en#TBBSocksPort) for how to properly
 configure Tor.
 
 
-1. Run Scryptic behind a Tor proxy
+1. Run scryptic behind a Tor proxy
 ---------------------------------
 
-The first step is running Scryptic behind a Tor proxy. This will already make all
+The first step is running scryptic behind a Tor proxy. This will already make all
 outgoing connections be anonymized, but more is possible.
 
 	-proxy=ip:port  Set the proxy server. If SOCKS5 is selected (default), this proxy
@@ -31,27 +31,27 @@ outgoing connections be anonymized, but more is possible.
 
 In a typical situation, this suffices to run behind a Tor proxy:
 
-	./Scryptic -proxy=127.0.0.1:9050
+	./scryptic -proxy=127.0.0.1:9050
 
 
-2. Run a Scryptic hidden server
+2. Run a scryptic hidden server
 ------------------------------
 
 If you configure your Tor system accordingly, it is possible to make your node also
 reachable from the Tor network. Add these lines to your /etc/tor/torrc (or equivalent
 config file):
 
-	HiddenServiceDir /var/lib/tor/Scryptic-service/
+	HiddenServiceDir /var/lib/tor/scryptic-service/
 	HiddenServicePort 7777 127.0.0.1:7777
 	HiddenServicePort 17777 127.0.0.1:17777
 
 The directory can be different of course, but (both) port numbers should be equal to
-your Scrypticd's P2P listen port (7777 by default, 17777 by default for testnet).
+your scrypticd's P2P listen port (7777 by default, 17777 by default for testnet).
 
-	-externalip=X   You can tell Scryptic about its publicly reachable address using
+	-externalip=X   You can tell scryptic about its publicly reachable address using
 	                this option, and this can be a .onion address. Given the above
 	                configuration, you can find your onion address in
-	                /var/lib/tor/Scryptic-service/hostname. Onion addresses are given
+	                /var/lib/tor/scryptic-service/hostname. Onion addresses are given
 	                preference for your node to advertize itself with, for connections
 	                coming from unroutable addresses (such as 127.0.0.1, where the
 	                Tor proxy typically runs).
@@ -68,22 +68,22 @@ your Scrypticd's P2P listen port (7777 by default, 17777 by default for testnet)
 
 In a typical situation, where you're only reachable via Tor, this should suffice:
 
-	./Scrypticd -proxy=127.0.0.1:9050 -externalip=youraddress.onion -listen
+	./scrypticd -proxy=127.0.0.1:9050 -externalip=youraddress.onion -listen
 
 (obviously, replace the Onion address with your own). If you don't care too much
 about hiding your node, and want to be reachable on IPv4 as well, additionally
 specify:
 
-	./Scrypticd ... -discover
+	./scrypticd ... -discover
 
 and open port 7777 on your firewall.
 
 If you only want to use Tor to reach onion addresses, but not use it as a proxy
 for normal IPv4/IPv6 communication, use:
 
-	./Scryptic -onion=127.0.0.1:9050 -externalip=youraddress.onion -discover
+	./scryptic -onion=127.0.0.1:9050 -externalip=youraddress.onion -discover
 
-Known addresses of Scryptic nodes
+Known addresses of scryptic nodes
 
 	seedp4knqnoei57u.onion
 	seedr3hhlepyi7fd.onion

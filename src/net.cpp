@@ -323,7 +323,7 @@ bool GetMyExternalIP(CNetAddr& ipRet)
 void ThreadGetMyExternalIP(void* parg)
 {
     // Make this thread recognisable as the external IP detection thread
-    RenameThread("Scryptic-ext-ip");
+    RenameThread("scryptic-ext-ip");
 
     CNetAddr addrLocalHost;
     if (GetMyExternalIP(addrLocalHost))
@@ -583,7 +583,7 @@ void CNode::copyStats(CNodeStats &stats)
 void ThreadSocketHandler(void* parg)
 {
     // Make this thread recognisable as the networking thread
-    RenameThread("Scryptic-net");
+    RenameThread("scryptic-net");
 
     try
     {
@@ -939,16 +939,16 @@ void ThreadSocketHandler2(void* parg)
 // The first name is used as information source for addrman.
 // The second name should resolve to a list of seed addresses.
 static const char *strDNSSeed[][2] = {
-    {"Scryptic.karelia.pro", "dnsseed.Scryptic.karelia.pro"},
-    {"Scryptic.ru", "dnsseed.Scryptic.ru"},
-    {"Scryptic.ru", "testseed.Scryptic.ru"},
+    {"scryptic.karelia.pro", "dnsseed.scryptic.karelia.pro"},
+    {"scryptic.ru", "dnsseed.scryptic.ru"},
+    {"scryptic.ru", "testseed.scryptic.ru"},
     {"novaco.in", "dnsseed.novaco.in"},
 };
 
 void ThreadDNSAddressSeed(void* parg)
 {
     // Make this thread recognisable as the DNS seeding thread
-    RenameThread("Scryptic-dnsseed");
+    RenameThread("scryptic-dnsseed");
 
     try
     {
@@ -1077,7 +1077,7 @@ void ThreadDumpAddress2(void* parg)
 void ThreadDumpAddress(void* parg)
 {
     // Make this thread recognisable as the address dumping thread
-    RenameThread("Scryptic-adrdump");
+    RenameThread("scryptic-adrdump");
 
     try
     {
@@ -1092,7 +1092,7 @@ void ThreadDumpAddress(void* parg)
 void ThreadOpenConnections(void* parg)
 {
     // Make this thread recognisable as the connection opening thread
-    RenameThread("Scryptic-opencon");
+    RenameThread("scryptic-opencon");
 
     try
     {
@@ -1267,7 +1267,7 @@ void ThreadOpenConnections2(void* parg)
 void ThreadOpenAddedConnections(void* parg)
 {
     // Make this thread recognisable as the connection opening thread
-    RenameThread("Scryptic-opencon");
+    RenameThread("scryptic-opencon");
 
     try
     {
@@ -1444,7 +1444,7 @@ void static StartSync(const vector<CNode*> &vNodes) {
 void ThreadMessageHandler(void* parg)
 {
     // Make this thread recognisable as the message handling thread
-    RenameThread("Scryptic-msghand");
+    RenameThread("scryptic-msghand");
 
     try
     {
@@ -1603,7 +1603,7 @@ bool BindListenPort(const CService &addrBind, string& strError)
     {
         int nErr = WSAGetLastError();
         if (nErr == WSAEADDRINUSE)
-            strError = strprintf(_("Unable to bind to %s on this computer. Scryptic is probably already running."), addrBind.ToString().c_str());
+            strError = strprintf(_("Unable to bind to %s on this computer. scryptic is probably already running."), addrBind.ToString().c_str());
         else
             strError = strprintf(_("Unable to bind to %s on this computer (bind returned error %d, %s)"), addrBind.ToString().c_str(), nErr, strerror(nErr));
         printf("%s\n", strError.c_str());
@@ -1688,7 +1688,7 @@ void static Discover()
 void StartNode(void* parg)
 {
     // Make this thread recognisable as the startup thread
-    RenameThread("Scryptic-start");
+    RenameThread("scryptic-start");
 
     if (semOutbound == NULL) {
         // initialize semaphore

@@ -1,6 +1,6 @@
 [Protocol]
-exec=Scryptic-qt '%u'
-protocol=Scryptic
+exec=scryptic-qt '%u'
+protocol=scryptic
 input=none
 output=none
 helper=true

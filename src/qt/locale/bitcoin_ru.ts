@@ -5,26 +5,26 @@
     <name>AboutDialog</name>
     <message>
         <location filename="../forms/aboutdialog.ui" line="14"/>
-        <source>About Scryptic</source>
-        <translation>О Scryptic</translation>
+        <source>About scryptic</source>
+        <translation>О scryptic</translation>
     </message>
     <message>
         <location filename="../forms/aboutdialog.ui" line="56"/>
-        <source>&lt;b&gt;Scryptic&lt;/b&gt; version</source>
-        <translation>&lt;b&gt;Scryptic&lt;/b&gt; версия</translation>
+        <source>&lt;b&gt;scryptic&lt;/b&gt; version</source>
+        <translation>&lt;b&gt;scryptic&lt;/b&gt; версия</translation>
     </message>
     <message>
         <location filename="../forms/aboutdialog.ui" line="97"/>
         <source>Copyright © 2009-2015 The Bitcoin developers
-Copyright © 2011-2012 The Scryptic Developers
+Copyright © 2011-2012 The scryptic Developers
 Copyright © 2014 The Peerunity Developers
 Copyright © 2014 The EmerCoin Developers
-Copyright © 2012-2015 The Scryptic developers</source>
+Copyright © 2012-2015 The scryptic developers</source>
         <translation>Все права защищены © 2009-2015 Разработчики Bitcoin
-Все права защищены © 2011-2012 Разработчики Scryptic
+Все права защищены © 2011-2012 Разработчики scryptic
 Все права защищены © 2014 Разработчики Peerunity
 Все права защищены © 2014 Разработчики EmerCoin
-Все права защищены © 2012-2015 Разработчики Scryptic</translation>
+Все права защищены © 2012-2015 Разработчики scryptic</translation>
     </message>
     <message>
         <location filename="../forms/aboutdialog.ui" line="114"/>
@@ -41,7 +41,7 @@ Copyright © 2012-2015 The Scryptic developers</source>
     </message>
     <message>
         <location filename="../forms/addressbookpage.ui" line="20"/>
-        <source>These are your Scryptic addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</source>
+        <source>These are your scryptic addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</source>
         <translation>Это Ваши адреса для получения платежей. Вы можете дать разные адреса отправителям, чтобы отслеживать, кто именно вам платит.</translation>
     </message>
     <message>
@@ -76,8 +76,8 @@ Copyright © 2012-2015 The Scryptic developers</source>
     </message>
     <message>
         <location filename="../forms/addressbookpage.ui" line="102"/>
-        <source>Sign a message to prove you own a Scryptic address</source>
-        <translation>Подписать сообщение, чтобы доказать владение адресом Scryptic</translation>
+        <source>Sign a message to prove you own a scryptic address</source>
+        <translation>Подписать сообщение, чтобы доказать владение адресом scryptic</translation>
     </message>
     <message>
         <location filename="../forms/addressbookpage.ui" line="105"/>
@@ -86,8 +86,8 @@ Copyright © 2012-2015 The Scryptic developers</source>
     </message>
     <message>
         <location filename="../forms/addressbookpage.ui" line="116"/>
-        <source>Verify a message to ensure it was signed with a specified Scryptic address</source>
-        <translation>Проверить сообщение, чтобы убедиться, что оно было подписано указанным адресом Scryptic</translation>
+        <source>Verify a message to ensure it was signed with a specified scryptic address</source>
+        <translation>Проверить сообщение, чтобы убедиться, что оно было подписано указанным адресом scryptic</translation>
     </message>
     <message>
         <location filename="../forms/addressbookpage.ui" line="119"/>
@@ -238,7 +238,7 @@ Copyright © 2012-2015 The Scryptic developers</source>
     </message>
     <message>
         <location filename="../askpassphrasedialog.cpp" line="116"/>
-        <source>Scryptic will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your coins from being stolen by malware infecting your computer.</source>
+        <source>scryptic will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your coins from being stolen by malware infecting your computer.</source>
         <translation>Сейчас программа закроется для завершения процесса шифрования. Помните, что шифрование вашего бумажника не может полностью защитить ваши монеты от кражи с помощью инфицирования вашего компьютера вредоносным ПО.</translation>
     </message>
     <message>
@@ -291,7 +291,7 @@ Copyright © 2012-2015 The Scryptic developers</source>
     </message>
     <message>
         <location filename="../askpassphrasedialog.cpp" line="178"/>
-        <source>Scryptic will close now to finish the decryption process. </source>
+        <source>scryptic will close now to finish the decryption process. </source>
         <translation>Сейчас программа закроется для завершения процесса расшифровки.</translation>
     </message>
     <message>
@@ -310,14 +310,14 @@ Copyright © 2012-2015 The Scryptic developers</source>
     <name>BitcoinGUI</name>
     <message>
         <location filename="../bitcoin.cpp" line="146"/>
-        <source>A fatal error occurred. Scryptic can no longer continue safely and will quit.</source>
-        <translation>Произошла неисправимая ошибка. Scryptic не может безопасно продолжать работу и будет закрыт.</translation>
+        <source>A fatal error occurred. scryptic can no longer continue safely and will quit.</source>
+        <translation>Произошла неисправимая ошибка. scryptic не может безопасно продолжать работу и будет закрыт.</translation>
     </message>
     <message>
         <location filename="../bitcoingui.cpp" line="96"/>
         <location filename="../bitcoingui.cpp" line="736"/>
-        <source>Scryptic</source>
-        <translation>Scryptic</translation>
+        <source>scryptic</source>
+        <translation>scryptic</translation>
     </message>
     <message>
         <location filename="../bitcoingui.cpp" line="96"/>
@@ -341,8 +341,8 @@ Copyright © 2012-2015 The Scryptic developers</source>
     </message>
     <message>
         <location filename="../bitcoingui.cpp" line="251"/>
-        <source>Send coins to a Scryptic address</source>
-        <translation>Отправить монеты на указанный адрес Scryptic</translation>
+        <source>Send coins to a scryptic address</source>
+        <translation>Отправить монеты на указанный адрес scryptic</translation>
     </message>
     <message>
         <location filename="../bitcoingui.cpp" line="256"/>
@@ -406,13 +406,13 @@ Copyright © 2012-2015 The Scryptic developers</source>
     </message>
     <message>
         <location filename="../bitcoingui.cpp" line="303"/>
-        <source>&amp;About Scryptic</source>
-        <translation>&amp;О Scryptic</translation>
+        <source>&amp;About scryptic</source>
+        <translation>&amp;О scryptic</translation>
     </message>
     <message>
         <location filename="../bitcoingui.cpp" line="304"/>
-        <source>Show information about Scryptic</source>
-        <translation>Показать информацию о Scryptic&apos;е</translation>
+        <source>Show information about scryptic</source>
+        <translation>Показать информацию о scryptic&apos;е</translation>
     </message>
     <message>
         <location filename="../bitcoingui.cpp" line="307"/>
@@ -432,8 +432,8 @@ Copyright © 2012-2015 The Scryptic developers</source>
     </message>
     <message>
         <location filename="../bitcoingui.cpp" line="314"/>
-        <source>Modify configuration options for Scryptic</source>
-        <translation>Изменить параметры конфигурации Scryptic</translation>
+        <source>Modify configuration options for scryptic</source>
+        <translation>Изменить параметры конфигурации scryptic</translation>
     </message>
     <message>
         <location filename="../bitcoingui.cpp" line="316"/>
@@ -497,8 +497,8 @@ Copyright © 2012-2015 The Scryptic developers</source>
     </message>
     <message>
         <location filename="../bitcoingui.cpp" line="329"/>
-        <source>Sign messages with your Scryptic addresses to prove you own them</source>
-        <translation>Подписать сообщения вашим Scryptic адресом, чтобы доказать, что вы им владеете</translation>
+        <source>Sign messages with your scryptic addresses to prove you own them</source>
+        <translation>Подписать сообщения вашим scryptic адресом, чтобы доказать, что вы им владеете</translation>
     </message>
     <message>
         <location filename="../bitcoingui.cpp" line="330"/>
@@ -507,8 +507,8 @@ Copyright © 2012-2015 The Scryptic developers</source>
     </message>
     <message>
         <location filename="../bitcoingui.cpp" line="331"/>
-        <source>Verify messages to ensure they were signed with specified Scryptic addresses</source>
-        <translation>Проверить сообщения, чтобы удостовериться, что они подписаны определенным Scryptic адресом</translation>
+        <source>Verify messages to ensure they were signed with specified scryptic addresses</source>
+        <translation>Проверить сообщения, чтобы удостовериться, что они подписаны определенным scryptic адресом</translation>
     </message>
     <message>
         <location filename="../bitcoingui.cpp" line="332"/>
@@ -517,7 +517,7 @@ Copyright © 2012-2015 The Scryptic developers</source>
     </message>
     <message>
         <location filename="../bitcoingui.cpp" line="333"/>
-        <source>Second auth with your Scryptic addresses</source>
+        <source>Second auth with your scryptic addresses</source>
         <translation>Дополнительная авторизация по Вашим адресам</translation>
     </message>
     <message>
@@ -609,12 +609,12 @@ Copyright © 2012-2015 The Scryptic developers</source>
     <message>
         <location filename="../bitcoingui.cpp" line="445"/>
         <location filename="../bitcoingui.cpp" line="513"/>
-        <source>Scryptic client</source>
-        <translation>Scryptic клиент</translation>
+        <source>scryptic client</source>
+        <translation>scryptic клиент</translation>
     </message>
     <message numerus="yes">
         <location filename="../bitcoingui.cpp" line="586"/>
-        <source>%n active connection(s) to Scryptic network</source>
+        <source>%n active connection(s) to scryptic network</source>
         <translation>
             <numerusform>%n активное соединение с сетью</numerusform>
             <numerusform>%n активных соединений с сетью</numerusform>
@@ -792,8 +792,8 @@ Address: %4
     <message>
         <location filename="../bitcoingui.cpp" line="982"/>
         <location filename="../bitcoingui.cpp" line="997"/>
-        <source>URI can not be parsed! This can be caused by an invalid Scryptic address or malformed URI parameters.</source>
-        <translation>Не удалось обработать URI! Это может быть связано с неверным адресом Scryptic или неправильными параметрами URI.</translation>
+        <source>URI can not be parsed! This can be caused by an invalid scryptic address or malformed URI parameters.</source>
+        <translation>Не удалось обработать URI! Это может быть связано с неверным адресом scryptic или неправильными параметрами URI.</translation>
     </message>
     <message>
         <location filename="../bitcoingui.cpp" line="1016"/>
@@ -1233,8 +1233,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location filename="../editaddressdialog.cpp" line="103"/>
-        <source>The entered address &quot;%1&quot; is not a valid Scryptic address.</source>
-        <translation>Введённый адрес &quot;%1&quot; не является правильным Scryptic-адресом.</translation>
+        <source>The entered address &quot;%1&quot; is not a valid scryptic address.</source>
+        <translation>Введённый адрес &quot;%1&quot; не является правильным scryptic-адресом.</translation>
     </message>
     <message>
         <location filename="../editaddressdialog.cpp" line="108"/>
@@ -1285,8 +1285,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location filename="../guiutil.cpp" line="476"/>
         <location filename="../guiutil.cpp" line="488"/>
-        <source>Scryptic-Qt</source>
-        <translation>Scryptic-Qt</translation>
+        <source>scryptic-Qt</source>
+        <translation>scryptic-Qt</translation>
     </message>
     <message>
         <location filename="../guiutil.cpp" line="476"/>
@@ -1333,17 +1333,17 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location filename="../forms/intro.ui" line="23"/>
-        <source>Welcome to Scryptic-qt.</source>
+        <source>Welcome to scryptic-qt.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/intro.ui" line="49"/>
-        <source>As this is the first time the program is launched, you can choose where Scryptic-qt will store its data.</source>
+        <source>As this is the first time the program is launched, you can choose where scryptic-qt will store its data.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/intro.ui" line="59"/>
-        <source>Scryptic-qt will download and store a copy of the Scryptic block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <source>scryptic-qt will download and store a copy of the scryptic block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1358,7 +1358,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location filename="../intro.cpp" line="184"/>
-        <source>Scryptic-qt</source>
+        <source>scryptic-qt</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1981,13 +1981,13 @@ Reduce the number of addresses involved in the address creation.</source>
     </message>
     <message>
         <location filename="../forms/optionsdialog.ui" line="86"/>
-        <source>Automatically start Scryptic after logging in to the system.</source>
-        <translation>Автоматически запускать Scryptic после входа в систему</translation>
+        <source>Automatically start scryptic after logging in to the system.</source>
+        <translation>Автоматически запускать scryptic после входа в систему</translation>
     </message>
     <message>
         <location filename="../forms/optionsdialog.ui" line="89"/>
-        <source>&amp;Start Scryptic on system login</source>
-        <translation>&amp;Запускать Scryptic при входе в систему</translation>
+        <source>&amp;Start scryptic on system login</source>
+        <translation>&amp;Запускать scryptic при входе в систему</translation>
     </message>
     <message>
         <location filename="../forms/optionsdialog.ui" line="96"/>
@@ -2006,8 +2006,8 @@ Reduce the number of addresses involved in the address creation.</source>
     </message>
     <message>
         <location filename="../forms/optionsdialog.ui" line="136"/>
-        <source>Connect to the Scryptic network through a SOCKS proxy (e.g. when connecting through Tor).</source>
-        <translation>Подключаться к сети Scryptic через прокси SOCKS (например, при подключении через Tor).</translation>
+        <source>Connect to the scryptic network through a SOCKS proxy (e.g. when connecting through Tor).</source>
+        <translation>Подключаться к сети scryptic через прокси SOCKS (например, при подключении через Tor).</translation>
     </message>
     <message>
         <location filename="../forms/optionsdialog.ui" line="139"/>
@@ -2106,8 +2106,8 @@ Reduce the number of addresses involved in the address creation.</source>
     </message>
     <message>
         <location filename="../forms/optionsdialog.ui" line="414"/>
-        <source>The user interface language can be set here. This setting will take effect after restarting Scryptic.</source>
-        <translation>Здесь можно выбрать язык интерфейса. Настройки вступят в силу после перезапуска Scryptic.</translation>
+        <source>The user interface language can be set here. This setting will take effect after restarting scryptic.</source>
+        <translation>Здесь можно выбрать язык интерфейса. Настройки вступят в силу после перезапуска scryptic.</translation>
     </message>
     <message>
         <location filename="../forms/optionsdialog.ui" line="425"/>
@@ -2121,8 +2121,8 @@ Reduce the number of addresses involved in the address creation.</source>
     </message>
     <message>
         <location filename="../forms/optionsdialog.ui" line="447"/>
-        <source>Whether to show Scryptic addresses in the transaction list or not.</source>
-        <translation>Показывать ли адреса Scryptic в списке транзакций.</translation>
+        <source>Whether to show scryptic addresses in the transaction list or not.</source>
+        <translation>Показывать ли адреса scryptic в списке транзакций.</translation>
     </message>
     <message>
         <location filename="../forms/optionsdialog.ui" line="450"/>
@@ -2183,8 +2183,8 @@ Reduce the number of addresses involved in the address creation.</source>
         <location filename="../optionsdialog.cpp" line="249"/>
         <location filename="../optionsdialog.cpp" line="258"/>
         <location filename="../optionsdialog.cpp" line="267"/>
-        <source>This setting will take effect after restarting Scryptic.</source>
-        <translation>Эта настройка вступит в силу после перезапуска Scryptic</translation>
+        <source>This setting will take effect after restarting scryptic.</source>
+        <translation>Эта настройка вступит в силу после перезапуска scryptic</translation>
     </message>
     <message>
         <location filename="../optionsdialog.cpp" line="297"/>
@@ -2207,8 +2207,8 @@ Reduce the number of addresses involved in the address creation.</source>
     <message>
         <location filename="../forms/overviewpage.ui" line="46"/>
         <location filename="../forms/overviewpage.ui" line="365"/>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Scryptic network after a connection is established, but this process has not completed yet.</source>
-        <translation>Отображаемая информация может быть устаревшей. Ваш бумажник автоматически синхронизируется с сетью Scryptic после подключения, но этот процесс пока не завершён.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the scryptic network after a connection is established, but this process has not completed yet.</source>
+        <translation>Отображаемая информация может быть устаревшей. Ваш бумажник автоматически синхронизируется с сетью scryptic после подключения, но этот процесс пока не завершён.</translation>
     </message>
     <message>
         <location filename="../forms/overviewpage.ui" line="225"/>
@@ -2308,18 +2308,18 @@ Reduce the number of addresses involved in the address creation.</source>
     <name>QObject</name>
     <message>
         <location filename="../bitcoinunits.cpp" line="48"/>
-        <source>Scryptics</source>
-        <translation>Scryptics</translation>
+        <source>scryptics</source>
+        <translation>scryptics</translation>
     </message>
     <message>
         <location filename="../bitcoinunits.cpp" line="49"/>
-        <source>Milli-Scryptics (1 / 1,000)</source>
-        <translation>Милли-Scryptics (1 / 1000)</translation>
+        <source>Milli-scryptics (1 / 1,000)</source>
+        <translation>Милли-scryptics (1 / 1000)</translation>
     </message>
     <message>
         <location filename="../bitcoinunits.cpp" line="50"/>
-        <source>Micro-Scryptics (1 / 1,000,000)</source>
-        <translation>Микро-Scryptics (1 / 1000000)</translation>
+        <source>Micro-scryptics (1 / 1,000,000)</source>
+        <translation>Микро-scryptics (1 / 1000000)</translation>
     </message>
     <message>
         <location filename="../bitcoinunits.cpp" line="185"/>
@@ -2419,8 +2419,8 @@ Reduce the number of addresses involved in the address creation.</source>
     <name>RPCConsole</name>
     <message>
         <location filename="../forms/rpcconsole.ui" line="14"/>
-        <source>Scryptic - Debug window</source>
-        <translation>Scryptic - Окно отладки</translation>
+        <source>scryptic - Debug window</source>
+        <translation>scryptic - Окно отладки</translation>
     </message>
     <message>
         <location filename="../forms/rpcconsole.ui" line="24"/>
@@ -2459,8 +2459,8 @@ Reduce the number of addresses involved in the address creation.</source>
     </message>
     <message>
         <location filename="../forms/rpcconsole.ui" line="95"/>
-        <source>Open the Scryptic debug log file from the current data directory. This can take a few seconds for large log files.</source>
-        <translation>Открыть отладочный лог-файл Scryptic из текущего каталога данных. Это может занять несколько секунд для больших лог-файлов.</translation>
+        <source>Open the scryptic debug log file from the current data directory. This can take a few seconds for large log files.</source>
+        <translation>Открыть отладочный лог-файл scryptic из текущего каталога данных. Это может занять несколько секунд для больших лог-файлов.</translation>
     </message>
     <message>
         <location filename="../forms/rpcconsole.ui" line="98"/>
@@ -2474,8 +2474,8 @@ Reduce the number of addresses involved in the address creation.</source>
     </message>
     <message>
         <location filename="../forms/rpcconsole.ui" line="147"/>
-        <source>Show the Scryptic-Qt help message to get a list with possible Scryptic command-line options.</source>
-        <translation>Показать помощь по Scryptic-Qt, чтобы получить список доступных параметров командной строки.</translation>
+        <source>Show the scryptic-Qt help message to get a list with possible scryptic command-line options.</source>
+        <translation>Показать помощь по scryptic-Qt, чтобы получить список доступных параметров командной строки.</translation>
     </message>
     <message>
         <location filename="../forms/rpcconsole.ui" line="150"/>
@@ -2539,8 +2539,8 @@ Reduce the number of addresses involved in the address creation.</source>
     </message>
     <message>
         <location filename="../forms/rpcconsole.ui" line="383"/>
-        <source>Scryptic Core</source>
-        <translation>Ядро Scryptic</translation>
+        <source>scryptic Core</source>
+        <translation>Ядро scryptic</translation>
     </message>
     <message>
         <location filename="../forms/rpcconsole.ui" line="406"/>
@@ -2549,8 +2549,8 @@ Reduce the number of addresses involved in the address creation.</source>
     </message>
     <message>
         <location filename="../forms/rpcconsole.ui" line="426"/>
-        <source>Open the Scryptic configuration file from the current data directory.</source>
-        <translation>Открыть конфигурационный файл Scryptic из текущего каталога данных.</translation>
+        <source>Open the scryptic configuration file from the current data directory.</source>
+        <translation>Открыть конфигурационный файл scryptic из текущего каталога данных.</translation>
     </message>
     <message>
         <location filename="../forms/rpcconsole.ui" line="429"/>
@@ -2594,8 +2594,8 @@ Reduce the number of addresses involved in the address creation.</source>
     </message>
     <message>
         <location filename="../rpcconsole.cpp" line="325"/>
-        <source>Welcome to the Scryptic RPC console.</source>
-        <translation>Добро пожаловать в RPC-консоль Scryptic.</translation>
+        <source>Welcome to the scryptic RPC console.</source>
+        <translation>Добро пожаловать в RPC-консоль scryptic.</translation>
     </message>
     <message>
         <location filename="../rpcconsole.cpp" line="326"/>
@@ -2690,8 +2690,8 @@ Reduce the number of addresses involved in the address creation.</source>
     </message>
     <message>
         <location filename="../secondauthdialog.cpp" line="29"/>
-        <source>Enter a Scryptic address (e.g. 4Zo1ga6xuKuQ7JV7M9rGDoxdbYwV5zgQJ5)</source>
-        <translation>Введите адрес Scryptic (напр. 4Zo1ga6xuKuQ7JV7M9rGDoxdbYwV5zgQJ5)</translation>
+        <source>Enter a scryptic address (e.g. 4Zo1ga6xuKuQ7JV7M9rGDoxdbYwV5zgQJ5)</source>
+        <translation>Введите адрес scryptic (напр. 4Zo1ga6xuKuQ7JV7M9rGDoxdbYwV5zgQJ5)</translation>
     </message>
     <message>
         <location filename="../secondauthdialog.cpp" line="80"/>
@@ -2927,8 +2927,8 @@ Reduce the number of addresses involved in the address creation.</source>
     </message>
     <message>
         <location filename="../sendcoinsdialog.cpp" line="42"/>
-        <source>Enter a Scryptic address (e.g. 4Zo1ga6xuKuQ7JV7M9rGDoxdbYwV5zgQJ5)</source>
-        <translation>Введите Scryptic-адрес (например 4Zo1ga6xuKuQ7JV7M9rGDoxdbYwV5zgQJ5)</translation>
+        <source>Enter a scryptic address (e.g. 4Zo1ga6xuKuQ7JV7M9rGDoxdbYwV5zgQJ5)</source>
+        <translation>Введите scryptic-адрес (например 4Zo1ga6xuKuQ7JV7M9rGDoxdbYwV5zgQJ5)</translation>
     </message>
     <message>
         <location filename="../sendcoinsdialog.cpp" line="56"/>
@@ -3087,8 +3087,8 @@ Reduce the number of addresses involved in the address creation.</source>
     </message>
     <message>
         <location filename="../sendcoinsentry.cpp" line="26"/>
-        <source>Enter a Scryptic address (e.g. 4Zo1ga6xuKuQ7JV7M9rGDoxdbYwV5zgQJ5)</source>
-        <translation>Введите Scryptic-адрес (например 4Zo1ga6xuKuQ7JV7M9rGDoxdbYwV5zgQJ5)</translation>
+        <source>Enter a scryptic address (e.g. 4Zo1ga6xuKuQ7JV7M9rGDoxdbYwV5zgQJ5)</source>
+        <translation>Введите scryptic-адрес (например 4Zo1ga6xuKuQ7JV7M9rGDoxdbYwV5zgQJ5)</translation>
     </message>
 </context>
 <context>
@@ -3148,8 +3148,8 @@ Reduce the number of addresses involved in the address creation.</source>
     </message>
     <message>
         <location filename="../forms/signverifymessagedialog.ui" line="148"/>
-        <source>Sign the message to prove you own this Scryptic address</source>
-        <translation>Подписать сообщение, чтобы доказать владение адресом Scryptic</translation>
+        <source>Sign the message to prove you own this scryptic address</source>
+        <translation>Подписать сообщение, чтобы доказать владение адресом scryptic</translation>
     </message>
     <message>
         <location filename="../forms/signverifymessagedialog.ui" line="165"/>
@@ -3180,8 +3180,8 @@ Reduce the number of addresses involved in the address creation.</source>
     </message>
     <message>
         <location filename="../forms/signverifymessagedialog.ui" line="294"/>
-        <source>Verify the message to ensure it was signed with the specified Scryptic address</source>
-        <translation>Проверить сообщение, чтобы убедиться, что оно было подписано указанным адресом Scryptic</translation>
+        <source>Verify the message to ensure it was signed with the specified scryptic address</source>
+        <translation>Проверить сообщение, чтобы убедиться, что оно было подписано указанным адресом scryptic</translation>
     </message>
     <message>
         <location filename="../forms/signverifymessagedialog.ui" line="311"/>
@@ -3191,8 +3191,8 @@ Reduce the number of addresses involved in the address creation.</source>
     <message>
         <location filename="../signverifymessagedialog.cpp" line="29"/>
         <location filename="../signverifymessagedialog.cpp" line="32"/>
-        <source>Enter a Scryptic address (e.g. 4Zo1ga6xuKuQ7JV7M9rGDoxdbYwV5zgQJ5)</source>
-        <translation>Введите адрес Scryptic (напр. 4Zo1ga6xuKuQ7JV7M9rGDoxdbYwV5zgQJ5)</translation>
+        <source>Enter a scryptic address (e.g. 4Zo1ga6xuKuQ7JV7M9rGDoxdbYwV5zgQJ5)</source>
+        <translation>Введите адрес scryptic (напр. 4Zo1ga6xuKuQ7JV7M9rGDoxdbYwV5zgQJ5)</translation>
     </message>
     <message>
         <location filename="../signverifymessagedialog.cpp" line="30"/>
@@ -3201,8 +3201,8 @@ Reduce the number of addresses involved in the address creation.</source>
     </message>
     <message>
         <location filename="../signverifymessagedialog.cpp" line="33"/>
-        <source>Enter Scryptic signature</source>
-        <translation>Введите подпись Scryptic</translation>
+        <source>Enter scryptic signature</source>
+        <translation>Введите подпись scryptic</translation>
     </message>
     <message>
         <location filename="../signverifymessagedialog.cpp" line="115"/>
@@ -3792,7 +3792,7 @@ Reduce the number of addresses involved in the address creation.</source>
         <source>%s, you must set a rpcpassword in the configuration file:
  %s
 It is recommended you use the following random password:
-rpcuser=Scrypticrpc
+rpcuser=scrypticrpc
 rpcpassword=%s
 (you do not need to remember this password)
 If the file does not exist, create it with owner-readable-only file permissions.
@@ -3800,7 +3800,7 @@ If the file does not exist, create it with owner-readable-only file permissions.
         <translation>%s, вы должны установить опцию rpcpassword в конфигурационном файле:
  %s
 Рекомендуется использовать следующий случайный пароль:
-rpcuser=Scrypticrpc
+rpcuser=scrypticrpc
 rpcpassword=%s
 (вам не нужно запоминать этот пароль)
 Если файл не существует, создайте его и установите права доступа только для владельца.
@@ -3823,8 +3823,8 @@ rpcpassword=%s
     </message>
     <message>
         <location filename="../bitcoinstrings.cpp" line="26"/>
-        <source>Cannot obtain a lock on data directory %s.  Scryptic is probably already running.</source>
-        <translation>Невозможно установить блокировку на рабочую директорию %s.  Возможно, Scryptic уже запущен.</translation>
+        <source>Cannot obtain a lock on data directory %s.  scryptic is probably already running.</source>
+        <translation>Невозможно установить блокировку на рабочую директорию %s.  Возможно, scryptic уже запущен.</translation>
     </message>
     <message>
         <location filename="../bitcoinstrings.cpp" line="29"/>
@@ -3873,8 +3873,8 @@ rpcpassword=%s
     </message>
     <message>
         <location filename="../bitcoinstrings.cpp" line="54"/>
-        <source>Unable to bind to %s on this computer. Scryptic is probably already running.</source>
-        <translation>Невозможно привязаться к %s на этом компьютере.  Возможно, Scryptic уже работает.</translation>
+        <source>Unable to bind to %s on this computer. scryptic is probably already running.</source>
+        <translation>Невозможно привязаться к %s на этом компьютере.  Возможно, scryptic уже работает.</translation>
     </message>
     <message>
         <location filename="../bitcoinstrings.cpp" line="56"/>
@@ -3883,8 +3883,8 @@ rpcpassword=%s
     </message>
     <message>
         <location filename="../bitcoinstrings.cpp" line="59"/>
-        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong Scryptic will not work properly.</source>
-        <translation>Внимание: убедитесь, что дата и время на Вашем компьютере выставлены верно. Если Ваши часы идут неправильно, Scryptic будет работать некорректно.</translation>
+        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong scryptic will not work properly.</source>
+        <translation>Внимание: убедитесь, что дата и время на Вашем компьютере выставлены верно. Если Ваши часы идут неправильно, scryptic будет работать некорректно.</translation>
     </message>
     <message>
         <location filename="../bitcoinstrings.cpp" line="62"/>
@@ -4012,8 +4012,8 @@ If the file does not exist, create it with owner-readable-only file permissions.
     </message>
     <message>
         <location filename="../bitcoinstrings.cpp" line="95"/>
-        <source>Error loading wallet.dat: Wallet requires newer version of Scryptic</source>
-        <translation>Ошибка загрузки wallet.dat: бумажник требует более новую версию Scryptic</translation>
+        <source>Error loading wallet.dat: Wallet requires newer version of scryptic</source>
+        <translation>Ошибка загрузки wallet.dat: бумажник требует более новую версию scryptic</translation>
     </message>
     <message>
         <location filename="../bitcoinstrings.cpp" line="96"/>
@@ -4158,13 +4158,13 @@ If the file does not exist, create it with owner-readable-only file permissions.
     </message>
     <message>
         <location filename="../bitcoinstrings.cpp" line="124"/>
-        <source>Scryptic version</source>
+        <source>scryptic version</source>
         <translation>Версия</translation>
     </message>
     <message>
         <location filename="../bitcoinstrings.cpp" line="125"/>
-        <source>Scryptic</source>
-        <translation>Scryptic</translation>
+        <source>scryptic</source>
+        <translation>scryptic</translation>
     </message>
     <message>
         <location filename="../bitcoinstrings.cpp" line="126"/>
@@ -4224,8 +4224,8 @@ If the file does not exist, create it with owner-readable-only file permissions.
     </message>
     <message>
         <location filename="../bitcoinstrings.cpp" line="137"/>
-        <source>Send command to -server or Scrypticd</source>
-        <translation>Отправить команду на -server или Scrypticd</translation>
+        <source>Send command to -server or scrypticd</source>
+        <translation>Отправить команду на -server или scrypticd</translation>
     </message>
     <message>
         <location filename="../bitcoinstrings.cpp" line="138"/>
@@ -4289,8 +4289,8 @@ If the file does not exist, create it with owner-readable-only file permissions.
     </message>
     <message>
         <location filename="../bitcoinstrings.cpp" line="150"/>
-        <source>Specify configuration file (default: Scryptic.conf)</source>
-        <translation>Указать конфигурационный файл (по умолчанию: Scryptic.conf)</translation>
+        <source>Specify configuration file (default: scryptic.conf)</source>
+        <translation>Указать конфигурационный файл (по умолчанию: scryptic.conf)</translation>
     </message>
     <message>
         <location filename="../bitcoinstrings.cpp" line="151"/>
@@ -4304,8 +4304,8 @@ If the file does not exist, create it with owner-readable-only file permissions.
     </message>
     <message>
         <location filename="../bitcoinstrings.cpp" line="153"/>
-        <source>Specify pid file (default: Scrypticd.pid)</source>
-        <translation>Указать pid-файл (по умолчанию: Scryptic.pid)</translation>
+        <source>Specify pid file (default: scrypticd.pid)</source>
+        <translation>Указать pid-файл (по умолчанию: scryptic.pid)</translation>
     </message>
     <message>
         <location filename="../bitcoinstrings.cpp" line="154"/>
@@ -4386,8 +4386,8 @@ If the file does not exist, create it with owner-readable-only file permissions.
     </message>
     <message>
         <location filename="../bitcoinstrings.cpp" line="171"/>
-        <source>Wallet needed to be rewritten: restart Scryptic to complete</source>
-        <translation>Необходимо перезаписать бумажник, перезапустите Scryptic для завершения операции.</translation>
+        <source>Wallet needed to be rewritten: restart scryptic to complete</source>
+        <translation>Необходимо перезаписать бумажник, перезапустите scryptic для завершения операции.</translation>
     </message>
     <message>
         <location filename="../bitcoinstrings.cpp" line="172"/>

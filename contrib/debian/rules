@@ -1,25 +1,25 @@
 #!/usr/bin/make -f
 # -*- mode: makefile; coding: utf-8 -*-
 
-DEB_INSTALL_EXAMPLES_Scrypticd += debian/examples/*
-DEB_INSTALL_MANPAGES_Scrypticd += debian/manpages/*
+DEB_INSTALL_EXAMPLES_scrypticd += debian/examples/*
+DEB_INSTALL_MANPAGES_scrypticd += debian/manpages/*
 
 %:
 	dh --with bash-completion $@
 
 override_dh_auto_build:
-	cd src; $(MAKE) -f makefile.unix Scrypticd USE_ASM=1 USE_LEVELDB=1
+	cd src; $(MAKE) -f makefile.unix scrypticd USE_ASM=1 USE_LEVELDB=1
 	$(MAKE)
 
 override_dh_auto_clean:
-	if [ -f Makefile ]; then $(MAKE) clean; else rm -rf build/; rm -f Scryptic-qt; fi
+	if [ -f Makefile ]; then $(MAKE) clean; else rm -rf build/; rm -f scryptic-qt; fi
 	cd src; $(MAKE) -f makefile.unix clean
 
 override_dh_auto_configure:
-	qmake Scryptic-qt.pro USE_ASM=1 USE_LEVELDB=1
+	qmake scryptic-qt.pro USE_ASM=1 USE_LEVELDB=1
 
 # Ensure wrapper is set executable
-binary-post-install/Scrypticd:
-	chmod +x $(cdbs_curdestdir)usr/bin/Scrypticd
-binary-post-install/Scryptic-qt:
-	chmod +x $(cdbs_curdestdir)usr/bin/Scryptic-qt
+binary-post-install/scrypticd:
+	chmod +x $(cdbs_curdestdir)usr/bin/scrypticd
+binary-post-install/scryptic-qt:
+	chmod +x $(cdbs_curdestdir)usr/bin/scryptic-qt

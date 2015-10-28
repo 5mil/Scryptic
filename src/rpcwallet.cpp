@@ -118,7 +118,7 @@ Value getnewaddress(const Array& params, bool fHelp)
     if (fHelp || params.size() > 1)
         throw runtime_error(
             "getnewaddress [account]\n"
-            "Returns a new Scryptic address for receiving payments.  "
+            "Returns a new scryptic address for receiving payments.  "
             "If [account] is specified (recommended), it is added to the address book "
             "so payments received with the address will be credited to [account].");
 
@@ -185,7 +185,7 @@ Value getaccountaddress(const Array& params, bool fHelp)
     if (fHelp || params.size() != 1)
         throw runtime_error(
             "getaccountaddress <account>\n"
-            "Returns the current Scryptic address for receiving payments to this account.");
+            "Returns the current scryptic address for receiving payments to this account.");
 
     // Parse the account first so we don't generate a key if there's an error
     string strAccount = AccountFromValue(params[0]);
@@ -203,12 +203,12 @@ Value setaccount(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() < 1 || params.size() > 2)
         throw runtime_error(
-            "setaccount <Scrypticaddress> <account>\n"
+            "setaccount <scrypticaddress> <account>\n"
             "Sets the account associated with the given address.");
 
     CBitcoinAddress address(params[0].get_str());
     if (!address.IsValid())
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Scryptic address");
+        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid scryptic address");
 
 
     string strAccount;
@@ -233,12 +233,12 @@ Value getaccount(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 1)
         throw runtime_error(
-            "getaccount <Scrypticaddress>\n"
+            "getaccount <scrypticaddress>\n"
             "Returns the account associated with the given address.");
 
     CBitcoinAddress address(params[0].get_str());
     if (!address.IsValid())
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Scryptic address");
+        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid scryptic address");
 
     string strAccount;
     map<CTxDestination, string>::iterator mi = pwalletMain->mapAddressBook.find(address.Get());
@@ -319,13 +319,13 @@ Value sendtoaddress(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() < 2 || params.size() > 4)
         throw runtime_error(
-            "sendtoaddress <Scrypticaddress> <amount> [comment] [comment-to]\n"
+            "sendtoaddress <scrypticaddress> <amount> [comment] [comment-to]\n"
             "<amount> is a real and is rounded to the nearest " + FormatMoney(nMinimumInputValue)
             + HelpRequiringPassphrase());
 
     CBitcoinAddress address(params[0].get_str());
     if (!address.IsValid())
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Scryptic address");
+        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid scryptic address");
 
     // Amount
     int64_t nAmount = AmountFromValue(params[1]);
@@ -385,7 +385,7 @@ Value signmessage(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 2)
         throw runtime_error(
-            "signmessage <Scrypticaddress> <message>\n"
+            "signmessage <scrypticaddress> <message>\n"
             "Sign a message with the private key of an address");
 
     EnsureWalletIsUnlocked();
@@ -420,7 +420,7 @@ Value verifymessage(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 3)
         throw runtime_error(
-            "verifymessage <Scrypticaddress> <signature> <message>\n"
+            "verifymessage <scrypticaddress> <signature> <message>\n"
             "Verify a signed message");
 
     string strAddress  = params[0].get_str();
@@ -457,14 +457,14 @@ Value getreceivedbyaddress(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() < 1 || params.size() > 2)
         throw runtime_error(
-            "getreceivedbyaddress <Scrypticaddress> [minconf=1]\n"
-            "Returns the total amount received by <Scrypticaddress> in transactions with at least [minconf] confirmations.");
+            "getreceivedbyaddress <scrypticaddress> [minconf=1]\n"
+            "Returns the total amount received by <scrypticaddress> in transactions with at least [minconf] confirmations.");
 
     // Bitcoin address
     CBitcoinAddress address = CBitcoinAddress(params[0].get_str());
     CScript scriptPubKey;
     if (!address.IsValid())
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Scryptic address");
+        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid scryptic address");
     scriptPubKey.SetDestination(address.Get());
     if (!IsMine(*pwalletMain,scriptPubKey))
         return (double)0.0;
@@ -690,14 +690,14 @@ Value sendfrom(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() < 3 || params.size() > 6)
         throw runtime_error(
-            "sendfrom <fromaccount> <toScrypticaddress> <amount> [minconf=1] [comment] [comment-to]\n"
+            "sendfrom <fromaccount> <toscrypticaddress> <amount> [minconf=1] [comment] [comment-to]\n"
             "<amount> is a real and is rounded to the nearest " + FormatMoney(nMinimumInputValue)
             + HelpRequiringPassphrase());
 
     string strAccount = AccountFromValue(params[0]);
     CBitcoinAddress address(params[1].get_str());
     if (!address.IsValid())
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Scryptic address");
+        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid scryptic address");
     int64_t nAmount = AmountFromValue(params[2]);
 
     if (nAmount < nMinimumInputValue)
@@ -757,7 +757,7 @@ Value sendmany(const Array& params, bool fHelp)
     {
         CBitcoinAddress address(s.name_);
         if (!address.IsValid())
-            throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, string("Invalid Scryptic address: ")+s.name_);
+            throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, string("Invalid scryptic address: ")+s.name_);
 
         if (setAddress.count(address))
             throw JSONRPCError(RPC_INVALID_PARAMETER, string("Invalid parameter, duplicated address: ")+s.name_);
@@ -805,7 +805,7 @@ Value addmultisigaddress(const Array& params, bool fHelp)
     {
         string msg = "addmultisigaddress <nrequired> <'[\"key\",\"key\"]'> [account]\n"
             "Add a nrequired-to-sign multisignature address to the wallet\"\n"
-            "each key is a Scryptic address or hex-encoded public key\n"
+            "each key is a scryptic address or hex-encoded public key\n"
             "If [account] is specified, assign address to [account].";
         throw runtime_error(msg);
     }
@@ -1477,7 +1477,7 @@ Value keypoolreset(const Array& params, bool fHelp)
 void ThreadTopUpKeyPool(void* parg)
 {
     // Make this thread recognisable as the key-topping-up thread
-    RenameThread("Scryptic-key-top");
+    RenameThread("scryptic-key-top");
 
     pwalletMain->TopUpKeyPool();
 }
@@ -1485,7 +1485,7 @@ void ThreadTopUpKeyPool(void* parg)
 void ThreadCleanWalletPassphrase(void* parg)
 {
     // Make this thread recognisable as the wallet relocking thread
-    RenameThread("Scryptic-lock-wa");
+    RenameThread("scryptic-lock-wa");
 
     int64_t nMyWakeTime = GetTimeMillis() + *((int64_t*)parg) * 1000;
 
@@ -1561,7 +1561,7 @@ Value walletpassphrase(const Array& params, bool fHelp)
     int64_t* pnSleepTime = new int64_t(params[1].get_int64());
     NewThread(ThreadCleanWalletPassphrase, pnSleepTime);
 
-    // Scryptic: if user OS account compromised prevent trivial sendmoney commands
+    // scryptic: if user OS account compromised prevent trivial sendmoney commands
     if (params.size() > 2)
         fWalletUnlockMintOnly = params[2].get_bool();
     else
@@ -1656,7 +1656,7 @@ Value encryptwallet(const Array& params, bool fHelp)
     // slack space in .dat files; that is bad if the old data is
     // unencrypted private keys. So:
     StartShutdown();
-    return "wallet encrypted; Scryptic server stopping, restart to run with encrypted wallet.  The keypool has been flushed, you need to make a new backup.";
+    return "wallet encrypted; scryptic server stopping, restart to run with encrypted wallet.  The keypool has been flushed, you need to make a new backup.";
 }
 
 class DescribeAddressVisitor : public boost::static_visitor<Object>
@@ -1707,8 +1707,8 @@ Value validateaddress(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 1)
         throw runtime_error(
-            "validateaddress <Scrypticaddress>\n"
-            "Return information about <Scrypticaddress>.");
+            "validateaddress <scrypticaddress>\n"
+            "Return information about <scrypticaddress>.");
 
     CBitcoinAddress address(params[0].get_str());
     bool isValid = address.IsValid();
@@ -1733,7 +1733,7 @@ Value validateaddress(const Array& params, bool fHelp)
     return ret;
 }
 
-// Scryptic: reserve balance from being staked for network protection
+// scryptic: reserve balance from being staked for network protection
 Value reservebalance(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() > 2)
@@ -1774,7 +1774,7 @@ Value reservebalance(const Array& params, bool fHelp)
 }
 
 
-// Scryptic: check wallet integrity
+// scryptic: check wallet integrity
 Value checkwallet(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() > 0)
@@ -1797,7 +1797,7 @@ Value checkwallet(const Array& params, bool fHelp)
 }
 
 
-// Scryptic: repair wallet
+// scryptic: repair wallet
 Value repairwallet(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() > 0)
@@ -1819,7 +1819,7 @@ Value repairwallet(const Array& params, bool fHelp)
     return result;
 }
 
-// Scryptic: resend unconfirmed wallet transactions
+// scryptic: resend unconfirmed wallet transactions
 Value resendtx(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() > 1)
@@ -1833,7 +1833,7 @@ Value resendtx(const Array& params, bool fHelp)
     return Value::null;
 }
 
-// Scryptic: make a public-private key pair
+// scryptic: make a public-private key pair
 Value makekeypair(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() > 1)

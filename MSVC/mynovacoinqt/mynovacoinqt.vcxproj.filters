@@ -114,7 +114,7 @@
     <ClCompile Include="..\..\src\qt\monitoreddatamapper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="myScrypticqt_plugin_import.cpp">
+    <ClCompile Include="myscrypticqt_plugin_import.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\qt\notificator.cpp">
@@ -657,10 +657,10 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="C:\MyProjects\Scryptic\src\qt\locale\bitcoin_en.ts">
+    <None Include="C:\MyProjects\scryptic\src\qt\locale\bitcoin_en.ts">
       <Filter>Translation Files</Filter>
     </None>
-    <None Include="C:\MyProjects\Scryptic\src\qt\locale\bitcoin_ru.ts">
+    <None Include="C:\MyProjects\scryptic\src\qt\locale\bitcoin_ru.ts">
       <Filter>Translation Files</Filter>
     </None>
     <None Include="..\..\src\qt\res\icons\bitcoin.icns">
@@ -802,10 +802,10 @@
     <None Include="..\..\src\qt\res\icons\mining_inactive.png">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="..\..\src\qt\res\icons\Scryptic-128.png">
+    <None Include="..\..\src\qt\res\icons\scryptic-128.png">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="..\..\src\qt\res\icons\Scryptic-16.png">
+    <None Include="..\..\src\qt\res\icons\scryptic-16.png">
       <Filter>Resource Files</Filter>
     </None>
     <None Include="..\..\src\qt\res\icons\overview.png">
@@ -855,7 +855,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="C:\MyProjects\Scryptic\MSVC\myScrypticqt\myScrypticqt_resource.rc" />
+    <ResourceCompile Include="C:\MyProjects\scryptic\MSVC\myscrypticqt\myscrypticqt_resource.rc" />
     <ResourceCompile Include="icon.rc">
       <Filter>Resource Files</Filter>
     </ResourceCompile>
@@ -867,19 +867,19 @@
     <Image Include="..\..\src\qt\res\icons\notsynced.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="..\..\src\qt\res\icons\Scryptic.ico">
+    <Image Include="..\..\src\qt\res\icons\scryptic.ico">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="..\..\src\qt\res\icons\Scryptic.png">
+    <Image Include="..\..\src\qt\res\icons\scryptic.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="..\..\src\qt\res\icons\Scryptic-32.png">
+    <Image Include="..\..\src\qt\res\icons\scryptic-32.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="..\..\src\qt\res\icons\Scryptic-48.png">
+    <Image Include="..\..\src\qt\res\icons\scryptic-48.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="..\..\src\qt\res\icons\Scryptic-80.png">
+    <Image Include="..\..\src\qt\res\icons\scryptic-80.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

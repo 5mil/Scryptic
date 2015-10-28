@@ -143,12 +143,12 @@ mingw32-make
 Будем хранить исходники в папке C:\MyProjects
 
 3.1 Скачиваем исходники
--Зайдите на сайт https://github.com/Scryptic-project/Scryptic 
+-Зайдите на сайт https://github.com/scryptic-project/scryptic 
 -Нажмите Download ZIP
--Распакуйте Scryptic-master.zip в C:\MyProjects
+-Распакуйте scryptic-master.zip в C:\MyProjects
 
-3.2 Собираем Scrypticd 
--Перейдите в папку C:\MyProjects\Scryptic-master\src
+3.2 Собираем scrypticd 
+-Перейдите в папку C:\MyProjects\scryptic-master\src
 -Откройте файл makefile.mingw в текстовом редакторе.(При написании инструкции использовался WordPad)
 -Добавьте  строчку USE_ASM:=1
 -Поменяйте текущие INCLUDEPATHS, LIBPATHS, LIBS на:
@@ -206,9 +206,9 @@ obj/txdb-leveldb.o: leveldb/libleveldb.a
 
 -Откройте MinGW shell (C:\MinGW\msys\1.0\msys.bat) и выполните следующий код:
 
-cd /c/MyProjects/Scryptic-master/src
+cd /c/MyProjects/scryptic-master/src
 make -f makefile.mingw
-strip Scrypticd.exe
+strip scrypticd.exe
 
 Если у вас возникает ошибка "make: cc: Command not found", то поменяйте в файле makefile.mingw
 
@@ -216,18 +216,18 @@ strip Scrypticd.exe
 на
  gcc -c $(xCXXFLAGS) -MMD -o $@ $<
 
-Если всё сделано правильно, то файл Scrypticd.exe будет находится в папке C:\MyProjects\Scryptic-master\src 
+Если всё сделано правильно, то файл scrypticd.exe будет находится в папке C:\MyProjects\scryptic-master\src 
 
 
-3.3 Собираем Scryptic QT
+3.3 Собираем scryptic QT
 
-Внимание: Если вы хотите собирать Scryptic Qt с LevelDB, но пропустили шаг со сборкой Scrypticd.exe, то 
+Внимание: Если вы хотите собирать scryptic Qt с LevelDB, но пропустили шаг со сборкой scrypticd.exe, то 
 -Откройте MinGW shell (C:\MinGW\msys\1.0\msys.bat) и выполните следующий код:
 
-cd /c/myprojects/Scryptic-master/src/leveldb
+cd /c/myprojects/scryptic-master/src/leveldb
 TARGET_OS=NATIVE_WINDOWS make libleveldb.a libmemenv.a
 
--Откройте файл C:\MyProjects\Scryptic-master\Scryptic-qt.pro в текстовом редакторе(при написании инструкции использовался WordPad)
+-Откройте файл C:\MyProjects\scryptic-master\scryptic-qt.pro в текстовом редакторе(при написании инструкции использовался WordPad)
 -Ниже 
 # Dependency library locations can be customized with:
 #    BOOST_INCLUDE_PATH, BOOST_LIB_PATH, BDB_INCLUDE_PATH,
@@ -265,52 +265,52 @@ windows:LIBS += -lboost_chrono$$BOOST_LIB_SUFFIX -Wl,-Bstatic -lpthread -Wl,-Bdy
 на
 windows:LIBS += -lboost_chrono$$BOOST_LIB_SUFFIX
 
--Сохраните измененный файл Scryptic-qt.pro
+-Сохраните измененный файл scryptic-qt.pro
 -Откройте командную строку Windows и выполните следующий код:
 
 Qt5 + транзакционный индекс BDB 
 
 set PATH=%PATH%;C:\Qt\5.4.0\bin
-cd C:\MyProjects\Scryptic-master
-qmake "USE_IPV6=1" "USE_ASM=1" Scryptic-qt.pro
+cd C:\MyProjects\scryptic-master
+qmake "USE_IPV6=1" "USE_ASM=1" scryptic-qt.pro
 mingw32-make -f Makefile.Release
 
 
 Qt5 + транзакционный индекс LevelDB
 
 set PATH=%PATH%;C:\Qt\5.4.0\bin
-cd C:\MyProjects\Scryptic-master
-qmake "USE_IPV6=1" "USE_LEVELDB=1" "USE_ASM=1" Scryptic-qt.pro
+cd C:\MyProjects\scryptic-master
+qmake "USE_IPV6=1" "USE_LEVELDB=1" "USE_ASM=1" scryptic-qt.pro
 mingw32-make -f Makefile.Release
 
 Qt4 + транзакционный индекс BDB
 
 set PATH=%PATH%;C:\Qt\4.8.6\bin
-cd C:\MyProjects\Scryptic-master
-qmake "USE_IPV6=1" "USE_ASM=1" Scryptic-qt.pro
+cd C:\MyProjects\scryptic-master
+qmake "USE_IPV6=1" "USE_ASM=1" scryptic-qt.pro
 mingw32-make -f Makefile.Release
 
 Qt4 + транзакционный индекс LevelDB
 
 set PATH=%PATH%;C:\Qt\4.8.6\bin
-cd C:\MyProjects\Scryptic-master
-qmake "USE_IPV6=1" "USE_LEVELDB=1" "USE_ASM=1" Scryptic-qt.pro
+cd C:\MyProjects\scryptic-master
+qmake "USE_IPV6=1" "USE_LEVELDB=1" "USE_ASM=1" scryptic-qt.pro
 mingw32-make -f Makefile.Release
 
 
 
-Если всё сделано правильно, то файл Scryptic-qt.exe будет находится в папке C:\MyProjects\Scryptic-master\release
+Если всё сделано правильно, то файл scryptic-qt.exe будет находится в папке C:\MyProjects\scryptic-master\release
 
 Если вы хотите уменьшить размер бинарных файлов, то
 1) Перейдите на сайт http://upx.sourceforge.net/#downloadupx
 2) Скачайте программу в соответсвии с вашей системой
-3) Распакуйте программу в папку с бинарными Scryptic файлами.
+3) Распакуйте программу в папку с бинарными scryptic файлами.
 4) Введите в консоли
-upx -9 Scrypticd.exe
+upx -9 scrypticd.exe
 затем
-upx -9 Scryptic-qt.exe
+upx -9 scryptic-qt.exe
 
-И ваши Scrypticd и Scryptic-qt станут меньше ~ в 3 раза.
+И ваши scrypticd и scryptic-qt станут меньше ~ в 3 раза.
 
 
 
@@ -414,7 +414,7 @@ mingw32-make
 
 3.1 Так же как 32 bit
 
-3.2 Собираем Scrypticd 
+3.2 Собираем scrypticd 
 -Измените makefile.mingw так же как в 32 bit
 -Откройте файл makefile.mingw в текстовом редакторе и сохраните его как makefile.ming64
 -Измените в INCLUDEPATHS и LIBPATHS /c/deps/ на /c/deps/x64/
@@ -422,39 +422,39 @@ mingw32-make
 LDFLAGS=-Wl,--dynamicbase -Wl,--nxcompat -Wl,--large-address-aware -static 
 на 
 LDFLAGS=-Wl,--dynamicbase -Wl,--nxcompat -Wl,-static, -static-libgcc
--Удалите (если они есть)obj(.o) файлы из C:\MyProjects\Scryptic-master\src\obj , если остались после 32 bit
--Удалите (если они есть)libleveldb.a и libmemenv.a в папке C:\MyProjects\Scryptic-master\src\leveldb
+-Удалите (если они есть)obj(.o) файлы из C:\MyProjects\scryptic-master\src\obj , если остались после 32 bit
+-Удалите (если они есть)libleveldb.a и libmemenv.a в папке C:\MyProjects\scryptic-master\src\leveldb
 -Удалите (если они есть)obj(.o) файлы из 
-C:\MyProjects\Scryptic-master\src\leveldb\db 
-C:\MyProjects\Scryptic-master\src\leveldb\helpers\memenv
-C:\MyProjects\Scryptic-master\src\leveldb\port
-C:\MyProjects\Scryptic-master\src\leveldb\table
-C:\MyProjects\Scryptic-master\src\leveldb\util
+C:\MyProjects\scryptic-master\src\leveldb\db 
+C:\MyProjects\scryptic-master\src\leveldb\helpers\memenv
+C:\MyProjects\scryptic-master\src\leveldb\port
+C:\MyProjects\scryptic-master\src\leveldb\table
+C:\MyProjects\scryptic-master\src\leveldb\util
 -Откройте MinGW shell (C:\MinGW\msys\1.0\msys.bat) и выполните следующий код:
 
-cd /c/MyProjects/Scryptic-master/src
+cd /c/MyProjects/scryptic-master/src
 make -f makefile.mingw64
-strip Scrypticd.exe
+strip scrypticd.exe
 
-Если всё сделано правильно, то файл Scrypticd.exe будет находится в папке C:\MyProjects\Scryptic-master\src 
+Если всё сделано правильно, то файл scrypticd.exe будет находится в папке C:\MyProjects\scryptic-master\src 
 
 
-3.3 Собираем Scryptic QT
-Внимание: Если вы хотите собирать Scryptic Qt с LevelDB, но пропустили шаг со сборкой Scrypticd.exe, то 
--Удалите (если они есть)libleveldb.a и libmemenv.a в папке C:\MyProjects\Scryptic-master\src\leveldb
+3.3 Собираем scryptic QT
+Внимание: Если вы хотите собирать scryptic Qt с LevelDB, но пропустили шаг со сборкой scrypticd.exe, то 
+-Удалите (если они есть)libleveldb.a и libmemenv.a в папке C:\MyProjects\scryptic-master\src\leveldb
 -Удалите (если они есть)obj(.o) файлы из 
-C:\MyProjects\Scryptic-master\src\leveldb\db 
-C:\MyProjects\Scryptic-master\src\leveldb\helpers\memenv
-C:\MyProjects\Scryptic-master\src\leveldb\port
-C:\MyProjects\Scryptic-master\src\leveldb\table
-C:\MyProjects\Scryptic-master\src\leveldb\util
+C:\MyProjects\scryptic-master\src\leveldb\db 
+C:\MyProjects\scryptic-master\src\leveldb\helpers\memenv
+C:\MyProjects\scryptic-master\src\leveldb\port
+C:\MyProjects\scryptic-master\src\leveldb\table
+C:\MyProjects\scryptic-master\src\leveldb\util
 -Откройте MinGW shell (C:\MinGW\msys\1.0\msys.bat) и выполните следующий код:
 
-cd /c/myprojects/Scryptic-master/src/leveldb
+cd /c/myprojects/scryptic-master/src/leveldb
 TARGET_OS=NATIVE_WINDOWS make libleveldb.a libmemenv.a
 
--Измените файл Scryptic-qt.pro так же как в 32 bit
--Откройте файл Scryptic-qt.pro в текстовом редакторе и сохраните его как Scryptic-qt64.pro
+-Измените файл scryptic-qt.pro так же как в 32 bit
+-Откройте файл scryptic-qt.pro в текстовом редакторе и сохраните его как scryptic-qt64.pro
 -Замените в INCLUDE и LIB путях текст C:/deps на текст C:/deps/x64 (то есть вместо C:/deps/boost_1_57_0 нужно C:/deps/x64/boost_1_57_0 и т.д.)
 -Замените 
 win32:QMAKE_LFLAGS *= -Wl,--large-address-aware -static 
@@ -466,41 +466,41 @@ win32:QMAKE_LFLAGS *= -Wl,-static
 Qt5 + транзакционный индекс BDB 
 
 set PATH=%PATH%;C:\Qt\5.4.0-x64\bin
-cd C:\MyProjects\Scryptic-master
-qmake "USE_IPV6=1" "USE_ASM=1" Scryptic-qt64.pro
+cd C:\MyProjects\scryptic-master
+qmake "USE_IPV6=1" "USE_ASM=1" scryptic-qt64.pro
 mingw32-make -f Makefile.Release
 
 
 Qt5 + транзакционный индекс LevelDB
 
 set PATH=%PATH%;C:\Qt\5.4.0-x64\bin
-cd C:\MyProjects\Scryptic-master
-qmake "USE_IPV6=1" "USE_LEVELDB=1" "USE_ASM=1" Scryptic-qt64.pro
+cd C:\MyProjects\scryptic-master
+qmake "USE_IPV6=1" "USE_LEVELDB=1" "USE_ASM=1" scryptic-qt64.pro
 mingw32-make -f Makefile.Release
 
 Qt4 + транзакционный индекс BDB
 
 set PATH=%PATH%;C:\Qt\4.8.6-x64\bin
-cd C:\MyProjects\Scryptic-master
-qmake "USE_IPV6=1" "USE_ASM=1" Scryptic-qt64.pro
+cd C:\MyProjects\scryptic-master
+qmake "USE_IPV6=1" "USE_ASM=1" scryptic-qt64.pro
 mingw32-make -f Makefile.Release
 
 Qt4 + транзакционный индекс LevelDB
 
 set PATH=%PATH%;C:\Qt\4.8.6-x64\bin
-cd C:\MyProjects\Scryptic-master
-qmake "USE_IPV6=1" "USE_LEVELDB=1" "USE_ASM=1" Scryptic-qt64.pro
+cd C:\MyProjects\scryptic-master
+qmake "USE_IPV6=1" "USE_LEVELDB=1" "USE_ASM=1" scryptic-qt64.pro
 mingw32-make -f Makefile.Release
 
-Если всё сделано правильно, то файл Scryptic-qt.exe будет находится в папке C:\MyProjects\Scryptic-master\release
+Если всё сделано правильно, то файл scryptic-qt.exe будет находится в папке C:\MyProjects\scryptic-master\release
 
 Если вы хотите уменьшить размер бинарных файлов, то
 1) Перейдите на сайт http://upx.sourceforge.net/#downloadupx
 2) Скачайте программу в соответсвии с вашей системой
-3) Распакуйте программу в папку с бинарными Scryptic файлами.
+3) Распакуйте программу в папку с бинарными scryptic файлами.
 4) Введите в консоли
-upx -9 Scrypticd.exe
+upx -9 scrypticd.exe
 затем
-upx -9 Scryptic-qt.exe
+upx -9 scryptic-qt.exe
 
-И ваши Scrypticd и Scryptic-qt станут меньше ~ в 3 раза.
+И ваши scrypticd и scryptic-qt станут меньше ~ в 3 раза.

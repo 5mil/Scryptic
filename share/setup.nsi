@@ -1,4 +1,4 @@
-Name Scryptic
+Name scryptic
 
 RequestExecutionLevel highest
 SetCompressor /SOLID lzma
@@ -6,11 +6,11 @@ SetCompressor /SOLID lzma
 # General Symbol Definitions
 !define REGKEY "SOFTWARE\$(^Name)"
 !define VERSION 0.3.0
-!define COMPANY "Scryptic project"
-!define URL http://www.Scryptic.ru/
+!define COMPANY "scryptic project"
+!define URL http://www.scryptic.ru/
 
 # MUI Symbol Definitions
-!define MUI_ICON "../share/pixmaps/Scryptic.ico"
+!define MUI_ICON "../share/pixmaps/scryptic.ico"
 !define MUI_WELCOMEFINISHPAGE_BITMAP "../share/pixmaps/nsis-wizard.bmp"
 !define MUI_HEADERIMAGE
 !define MUI_HEADERIMAGE_RIGHT
@@ -19,8 +19,8 @@ SetCompressor /SOLID lzma
 !define MUI_STARTMENUPAGE_REGISTRY_ROOT HKLM
 !define MUI_STARTMENUPAGE_REGISTRY_KEY ${REGKEY}
 !define MUI_STARTMENUPAGE_REGISTRY_VALUENAME StartMenuGroup
-!define MUI_STARTMENUPAGE_DEFAULTFOLDER Scryptic
-#!define MUI_FINISHPAGE_RUN $INSTDIR\Scryptic-qt.exe
+!define MUI_STARTMENUPAGE_DEFAULTFOLDER scryptic
+#!define MUI_FINISHPAGE_RUN $INSTDIR\scryptic-qt.exe
 !define MUI_UNICON "${NSISDIR}\Contrib\Graphics\Icons\modern-uninstall.ico"
 !define MUI_UNWELCOMEFINISHPAGE_BITMAP "../share/pixmaps/nsis-wizard.bmp"
 !define MUI_UNFINISHPAGE_NOAUTOCLOSE
@@ -45,14 +45,14 @@ Var StartMenuGroup
 !insertmacro MUI_LANGUAGE English
 
 # Installer attributes
-OutFile Scryptic-0.3.0-win32-setup.exe
-InstallDir $PROGRAMFILES\Scryptic
+OutFile scryptic-0.3.0-win32-setup.exe
+InstallDir $PROGRAMFILES\scryptic
 CRCCheck on
 XPStyle on
 BrandingText " "
 ShowInstDetails show
 VIProductVersion 0.3.0.0
-VIAddVersionKey ProductName Scryptic
+VIAddVersionKey ProductName scryptic
 VIAddVersionKey ProductVersion "${VERSION}"
 VIAddVersionKey CompanyName "${COMPANY}"
 VIAddVersionKey CompanyWebsite "${URL}"
@@ -66,18 +66,18 @@ ShowUninstDetails show
 Section -Main SEC0000
     SetOutPath $INSTDIR
     SetOverwrite on
-    #File ../release/Scryptic-qt.exe
+    #File ../release/scryptic-qt.exe
     File /oname=license.txt ../COPYING
     File /oname=readme.txt ../doc/README_windows.txt
     SetOutPath $INSTDIR\daemon
-    File ../src/Scrypticd.exe
+    File ../src/scrypticd.exe
     SetOutPath $INSTDIR\src
     File /r /x *.exe /x *.o ../src\*.*
     SetOutPath $INSTDIR
     WriteRegStr HKCU "${REGKEY}\Components" Main 1
 
-    # Remove old wxwidgets-based-Scryptic executable and locales:
-    #Delete /REBOOTOK $INSTDIR\Scryptic.exe
+    # Remove old wxwidgets-based-scryptic executable and locales:
+    #Delete /REBOOTOK $INSTDIR\scryptic.exe
     #RMDir /r /REBOOTOK $INSTDIR\locale
 SectionEnd
 
@@ -87,7 +87,7 @@ Section -post SEC0001
     WriteUninstaller $INSTDIR\uninstall.exe
     !insertmacro MUI_STARTMENU_WRITE_BEGIN Application
     CreateDirectory $SMPROGRAMS\$StartMenuGroup
-    CreateShortcut "$SMPROGRAMS\$StartMenuGroup\Uninstall Scryptic.lnk" $INSTDIR\uninstall.exe
+    CreateShortcut "$SMPROGRAMS\$StartMenuGroup\Uninstall scryptic.lnk" $INSTDIR\uninstall.exe
     !insertmacro MUI_STARTMENU_WRITE_END
     WriteRegStr HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" DisplayName "$(^Name)"
     WriteRegStr HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" DisplayVersion "${VERSION}"
@@ -98,11 +98,11 @@ Section -post SEC0001
     WriteRegDWORD HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" NoModify 1
     WriteRegDWORD HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" NoRepair 1
 
-    # Scryptic: URI handling disabled for 0.6.0
-    #    WriteRegStr HKCR "Scryptic" "URL Protocol" ""
-    #    WriteRegStr HKCR "Scryptic" "" "URL:Scryptic"
-    #    WriteRegStr HKCR "Scryptic\DefaultIcon" "" $INSTDIR\Scryptic-qt.exe
-    #    WriteRegStr HKCR "Scryptic\shell\open\command" "" '"$INSTDIR\Scryptic-qt.exe" "$$1"'
+    # scryptic: URI handling disabled for 0.6.0
+    #    WriteRegStr HKCR "scryptic" "URL Protocol" ""
+    #    WriteRegStr HKCR "scryptic" "" "URL:scryptic"
+    #    WriteRegStr HKCR "scryptic\DefaultIcon" "" $INSTDIR\scryptic-qt.exe
+    #    WriteRegStr HKCR "scryptic\shell\open\command" "" '"$INSTDIR\scryptic-qt.exe" "$$1"'
 SectionEnd
 
 # Macro for selecting uninstaller sections
@@ -120,7 +120,7 @@ done${UNSECTION_ID}:
 
 # Uninstaller sections
 Section /o -un.Main UNSEC0000
-    #Delete /REBOOTOK $INSTDIR\Scryptic-qt.exe
+    #Delete /REBOOTOK $INSTDIR\scryptic-qt.exe
     Delete /REBOOTOK $INSTDIR\license.txt
     Delete /REBOOTOK $INSTDIR\readme.txt
     RMDir /r /REBOOTOK $INSTDIR\daemon
@@ -130,9 +130,9 @@ SectionEnd
 
 Section -un.post UNSEC0001
     DeleteRegKey HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)"
-    Delete /REBOOTOK "$SMPROGRAMS\$StartMenuGroup\Uninstall Scryptic.lnk"
-    #Delete /REBOOTOK "$SMPROGRAMS\$StartMenuGroup\Scryptic.lnk"
-    #Delete /REBOOTOK "$SMSTARTUP\Scryptic.lnk"
+    Delete /REBOOTOK "$SMPROGRAMS\$StartMenuGroup\Uninstall scryptic.lnk"
+    #Delete /REBOOTOK "$SMPROGRAMS\$StartMenuGroup\scryptic.lnk"
+    #Delete /REBOOTOK "$SMSTARTUP\scryptic.lnk"
     Delete /REBOOTOK $INSTDIR\uninstall.exe
     Delete /REBOOTOK $INSTDIR\debug.log
     Delete /REBOOTOK $INSTDIR\db.log
@@ -140,7 +140,7 @@ Section -un.post UNSEC0001
     DeleteRegValue HKCU "${REGKEY}" Path
     DeleteRegKey /IfEmpty HKCU "${REGKEY}\Components"
     DeleteRegKey /IfEmpty HKCU "${REGKEY}"
-    DeleteRegKey HKCR "Scryptic"
+    DeleteRegKey HKCR "scryptic"
     RmDir /REBOOTOK $SMPROGRAMS\$StartMenuGroup
     RmDir /REBOOTOK $INSTDIR
     Push $R0

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# PROVIDE: Scryptic
+# PROVIDE: scryptic
 # REQUIRE: LOGIN
 # KEYWORD: shutdown
 
@@ -8,46 +8,46 @@
 # Add the following lines to /etc/rc.conf.local or /etc/rc.conf
 # to enable this service:
 #
-# Scryptic_enable (bool): Set to NO by default. Set this variable to YES if you want to enable Scryptic service.
-# Scryptic_config (path): Set to /usr/local/etc/Scryptic.conf by default.
-# Scryptic_user:  The user account Scryptic daemon runs as. It uses 'root' user by default.
-# Scryptic_group: The group account Scryptic daemon runs as. It uses 'wheel' group by default.
-# Scryptic_datadir (str): Default to "/var/db/Scryptic". Base data directory.
+# scryptic_enable (bool): Set to NO by default. Set this variable to YES if you want to enable scryptic service.
+# scryptic_config (path): Set to /usr/local/etc/scryptic.conf by default.
+# scryptic_user:  The user account scryptic daemon runs as. It uses 'root' user by default.
+# scryptic_group: The group account scryptic daemon runs as. It uses 'wheel' group by default.
+# scryptic_datadir (str): Default to "/var/db/scryptic". Base data directory.
 
 . /etc/rc.subr
 
-name=Scryptic
-rcvar=Scryptic_enable
+name=scryptic
+rcvar=scryptic_enable
 
-: ${Scryptic_enable:=NO}
-: ${Scryptic_config=/usr/local/etc/Scryptic.conf}
-: ${Scryptic_datadir=/var/db/Scryptic}
-: ${Scryptic_user="root"}
-: ${Scryptic_group="wheel"}
+: ${scryptic_enable:=NO}
+: ${scryptic_config=/usr/local/etc/scryptic.conf}
+: ${scryptic_datadir=/var/db/scryptic}
+: ${scryptic_user="root"}
+: ${scryptic_group="wheel"}
 
-required_files=${Scryptic_config}
-command=/usr/local/bin/Scrypticd
-Scryptic_chdir=${Scryptic_datadir}
-pidfile="${Scryptic_datadir}/Scrypticd.pid"
-stop_cmd=Scryptic_stop
-command_args="-conf=${Scryptic_config} -datadir=${Scryptic_datadir} -daemon -pid=${pidfile}"
+required_files=${scryptic_config}
+command=/usr/local/bin/scrypticd
+scryptic_chdir=${scryptic_datadir}
+pidfile="${scryptic_datadir}/scrypticd.pid"
+stop_cmd=scryptic_stop
+command_args="-conf=${scryptic_config} -datadir=${scryptic_datadir} -daemon -pid=${pidfile}"
 start_precmd="${name}_prestart"
 
-Scryptic_create_datadir()
+scryptic_create_datadir()
 {
 	echo "Creating data directory"
-	eval mkdir -p ${Scryptic_datadir}
-	[ $? -eq 0 ] && chown -R ${Scryptic_user}:${Scryptic_group} ${Scryptic_datadir}
+	eval mkdir -p ${scryptic_datadir}
+	[ $? -eq 0 ] && chown -R ${scryptic_user}:${scryptic_group} ${scryptic_datadir}
 }
 
-Scryptic_prestart()
+scryptic_prestart()
 {
-	if [ ! -d "${Scryptic_datadir}/." ]; then
-		Scryptic_create_datadir || return 1
+	if [ ! -d "${scryptic_datadir}/." ]; then
+		scryptic_create_datadir || return 1
 	fi
 }
 
-Scryptic_requirepidfile()
+scryptic_requirepidfile()
 {
 	if [ ! "0`check_pidfile ${pidfile} ${command}`" -gt 1 ]; then
 		echo "${name} not running? (check $pidfile)."
@@ -55,12 +55,12 @@ Scryptic_requirepidfile()
 	fi
 }
 
-Scryptic_stop()
+scryptic_stop()
 {
-    Scryptic_requirepidfile
+    scryptic_requirepidfile
 
 	echo "Stopping ${name}."
-	eval ${command} -conf=${Scryptic_config} -datadir=${Scryptic_datadir} stop
+	eval ${command} -conf=${scryptic_config} -datadir=${scryptic_datadir} stop
 	wait_for_pids ${rc_pid}
 }
 
