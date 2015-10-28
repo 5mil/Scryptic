@@ -1,2 +1,2 @@
-debian/bin/novacoind usr/bin
-src/novacoind usr/lib/novacoin
+debian/bin/Scrypticd usr/bin
+src/Scrypticd usr/lib/Scryptic

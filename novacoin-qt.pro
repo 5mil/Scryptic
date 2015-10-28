@@ -1,5 +1,5 @@
 TEMPLATE = app
-TARGET = novacoin-qt
+TARGET = Scryptic-qt
 VERSION = 0.7.5
 INCLUDEPATH += src src/json src/qt
 QT += core gui network
@@ -458,7 +458,7 @@ macx:OBJECTIVE_SOURCES += src/qt/macdockiconhandler.mm \
 macx:LIBS += -framework Foundation -framework ApplicationServices -framework AppKit
 macx:DEFINES += MAC_OSX MSG_NOSIGNAL=0
 macx:ICON = src/qt/res/icons/bitcoin.icns
-macx:TARGET = "NovaCoin-Qt"
+macx:TARGET = "Scryptic-Qt"
 macx:QMAKE_CFLAGS_THREAD += -pthread
 macx:QMAKE_LFLAGS_THREAD += -pthread
 macx:QMAKE_CXXFLAGS_THREAD += -pthread

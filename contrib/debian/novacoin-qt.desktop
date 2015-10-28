@@ -1,13 +1,13 @@
 [Desktop Entry]
 Encoding=UTF-8
-Name=NovaCoin
-Comment=NovaCoin P2P Cryptocurrency
-Comment[ru]=NovaCoin, P2P криптовалюта
-Comment[fr]=NovaCoin, monnaie virtuelle cryptographique pair à pair
-Comment[tr]=NovaCoin, eşten eşe kriptografik sanal para birimi
-Exec=/usr/bin/novacoin-qt
+Name=Scryptic
+Comment=Scryptic P2P Cryptocurrency
+Comment[ru]=Scryptic, P2P криптовалюта
+Comment[fr]=Scryptic, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Scryptic, eşten eşe kriptografik sanal para birimi
+Exec=/usr/bin/Scryptic-qt
 Terminal=false
 Type=Application
-Icon=/usr/share/pixmaps/novacoin80.xpm
-MimeType=x-scheme-handler/novacoin;
+Icon=/usr/share/pixmaps/Scryptic80.xpm
+MimeType=x-scheme-handler/Scryptic;
 Categories=Office;

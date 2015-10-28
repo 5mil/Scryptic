@@ -1,11 +1,11 @@
 [Unit]
-Description=Novacoin daemon serivce
+Description=Scryptic daemon serivce
 After=network.target
 
 [Service]
 Type=simple
-User=novacoin
-ExecStart=/opt/novacoin/novacoind
+User=Scryptic
+ExecStart=/opt/Scryptic/Scrypticd
 
 [Install]
 WantedBy=multi-user.target

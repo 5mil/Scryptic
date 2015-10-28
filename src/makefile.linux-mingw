@@ -100,7 +100,7 @@ OBJS= \
     obj/kernel.o \
     obj/kernel_worker.o
 
-all: novacoind.exe
+all: Scrypticd.exe
 
 #
 # LevelDB support
@@ -173,12 +173,12 @@ DEFS += -DHAVE_BUILD_INFO
 obj/%.o: %.cpp $(HEADERS)
 	$(CXX) -c $(CFLAGS) -o $@ $<
 
-novacoind.exe: $(OBJS:obj/%=obj/%)
+Scrypticd.exe: $(OBJS:obj/%=obj/%)
 	$(CXX) $(CFLAGS) $(LDFLAGS) -o $@ $(LIBPATHS) $^ $(LIBS) -lshlwapi
-	$(STRIP) novacoind.exe
+	$(STRIP) Scrypticd.exe
 
 clean:
-	-rm -f novacoind.exe
+	-rm -f Scrypticd.exe
 	-rm -f obj/*.o
 	-rm -f obj/*.P
 	-rm -f obj/*.d

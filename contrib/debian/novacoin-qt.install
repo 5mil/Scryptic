@@ -1,5 +1,5 @@
-novacoin-qt usr/bin
-share/pixmaps/novacoin32.xpm usr/share/pixmaps
-share/pixmaps/novacoin80.xpm usr/share/pixmaps
-debian/novacoin-qt.desktop usr/share/applications
-debian/novacoin-qt.protocol usr/share/kde4/services/
+Scryptic-qt usr/bin
+share/pixmaps/Scryptic32.xpm usr/share/pixmaps
+share/pixmaps/Scryptic80.xpm usr/share/pixmaps
+debian/Scryptic-qt.desktop usr/share/applications
+debian/Scryptic-qt.protocol usr/share/kde4/services/
