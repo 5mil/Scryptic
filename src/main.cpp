@@ -1064,7 +1064,7 @@ int64_t GetProofOfWorkReward(unsigned int nBits, int64_t nFees)
 // miner's coin stake reward based on nBits and coin age spent (coin-days)
 int64_t GetProofOfStakeReward(int64_t nCoinAge, unsigned int nBits, int64_t nTime, bool bCoinYearOnly)
 {
-    int64_t nRewardCoinYear, nSubsidy, nSubsidyLimit = 10 * COIN;
+    int64_t nRewardCoinYear, nSubsidy, nSubsidyLimit = 100 * COIN;
 
     // Stage 2 of emission process is mostly PoS-based.
 
