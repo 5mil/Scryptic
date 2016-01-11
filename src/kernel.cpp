@@ -339,8 +339,42 @@ bool stakeTargetHit(uint256 hashProofOfStake, unsigned int nAge, int64 nValueIn,
 	// Now check if proof-of-stake hash meets target protocol
 	return (CBigNum(hashProofOfStake) < bnCoinDayWeight * bnTargetPerCoinDay);
 }
-
-
+//instead of looping outside and reinitializing variables many times, we will give a nTimeTx and also search interval so that we can do all the hashing here
+bool CheckStakeKernelHash(unsigned int nBits, const CBlock& blockFrom, unsigned int nTxPrevOffset, const CTransaction& txPrev, 
+	const COutPoint& prevout, unsigned int& nTimeTx, unsigned int nHashDrift, bool fCheck, uint256& hashProofOfStake, bool fPrintProofOfStake)
+{
+    //assign new variables to make it easier to read
+	int64 nValueIn = txPrev.vout[prevout.n].nValue;
+	unsigned int nTxPrevTime = txPrev.nTime;
+	unsigned int nTimeBlockFrom = blockFrom.GetBlockTime();
+	
+	if (nTimeTx  < txPrev.nTime)  // Transaction timestamp violation
+       return error("CheckStakeKernelHash() : nTime violation");
+	
+	if (nTimeBlockFrom + nStakeMinAge > nTimeTx) // Min age requirement
+		return error("CheckStakeKernelHash() : min age violation");
+	
+	//grab difficulty
+	CBigNum bnTargetPerCoinDay;
+	bnTargetPerCoinDay.SetCompact(nBits);
+	
+	//grab stake modifier - HyperStake improves hashing by only grabbing this once per utxo
+	uint64 nStakeModifier = 0;
+	int nStakeModifierHeight = 0;
+	int64 nStakeModifierTime = 0;
+	if (!GetKernelStakeModifier(blockFrom.GetHash(), nStakeModifier, nStakeModifierHeight, nStakeModifierTime, fPrintProofOfStake))
+		return false;
+	
+	//create data stream once instead of repeating it in the loop
+	CDataStream ss(SER_GETHASH, 0);
+	ss << nStakeModifier;
+	
+	//if wallet is simply checking to make sure a hash is valid
+	if(fCheck)
+ 	{
+hashProofOfStake = stakeHash(nTimeTx, nTxPrevTime, ss, prevout.n, nTxPrevOffset, nTimeBlockFrom); 
++		return stakeTargetHit(hashProofOfStake, (int64)nTimeTx - nTxPrevTime, nValueIn, bnTargetPerCoinDay);
+ 	}
 // scryptic kernel protocol
 // coinstake must meet hash target according to the protocol:
 // kernel (input 0) must meet the formula
@@ -363,64 +397,40 @@ bool stakeTargetHit(uint256 hashProofOfStake, unsigned int nAge, int64 nValueIn,
 //   a proof-of-work situation.
 //
 bool CheckStakeKernelHash(uint32_t nBits, const CBlock& blockFrom, uint32_t nTxPrevOffset, const CTransaction& txPrev, const COutPoint& prevout, uint32_t nTimeTx, uint256& hashProofOfStake, uint256& targetProofOfStake, bool fPrintProofOfStake)
-{
-    if (nTimeTx < txPrev.nTime)  // Transaction timestamp violation
-        return error("CheckStakeKernelHash() : nTime violation");
 
-    uint32_t nTimeBlockFrom = blockFrom.GetBlockTime();
-    if (nTimeBlockFrom + nStakeMinAge > nTimeTx) // Min age requirement
-        return error("CheckStakeKernelHash() : min age violation");
+nHashDrift = min(nHashDrift, (unsigned int)(5*60)); // only allow 5 minutes of hashing in the future
+	nHashDrift *= 2; // double the value to hash equally into the past
+    bool fSuccess = false;
+	unsigned int nTryTime = 0;
+	unsigned int i;
+	for(i = 0; i < nHashDrift; i++) //iterate the hashing
+ 	{
+       //hash this iteration
+		nTryTime = nTimeTx + (nHashDrift/2) - i;
+		hashProofOfStake = stakeHash(nTryTime, nTxPrevTime, ss, prevout.n, nTxPrevOffset, nTimeBlockFrom); 
 
-    CBigNum bnTargetPerCoinDay;
-    bnTargetPerCoinDay.SetCompact(nBits);
-    int64_t nValueIn = txPrev.vout[prevout.n].nValue;
-
-    uint256 hashBlockFrom = blockFrom.GetHash();
-
-    CBigNum bnCoinDayWeight = CBigNum(nValueIn) * GetWeight((int64_t)txPrev.nTime, (int64_t)nTimeTx) / COIN / nOneDay;
-    targetProofOfStake = (bnCoinDayWeight * bnTargetPerCoinDay).getuint256();
-
-    // Calculate hash
-    CDataStream ss(SER_GETHASH, 0);
-    uint64_t nStakeModifier = 0;
-    int nStakeModifierHeight = 0;
-    int64_t nStakeModifierTime = 0;
-
-    if (!GetKernelStakeModifier(hashBlockFrom, nStakeModifier, nStakeModifierHeight, nStakeModifierTime, fPrintProofOfStake))
-        return false;
-    ss << nStakeModifier;
-
-    ss << nTimeBlockFrom << nTxPrevOffset << txPrev.nTime << prevout.n << nTimeTx;
-    hashProofOfStake = Hash(ss.begin(), ss.end());
-    if (fPrintProofOfStake)
-    {
-        printf("CheckStakeKernelHash() : using modifier 0x%016" PRIx64 " at height=%d timestamp=%s for block from height=%d timestamp=%s\n",
-            nStakeModifier, nStakeModifierHeight,
-            DateTimeStrFormat(nStakeModifierTime).c_str(),
-            mapBlockIndex[hashBlockFrom]->nHeight,
-            DateTimeStrFormat(blockFrom.GetBlockTime()).c_str());
-        printf("CheckStakeKernelHash() : check modifier=0x%016" PRIx64 " nTimeBlockFrom=%u nTxPrevOffset=%u nTimeTxPrev=%u nPrevout=%u nTimeTx=%u hashTarget=%s hashProof=%s\n",
-            nStakeModifier,
-            nTimeBlockFrom, nTxPrevOffset, txPrev.nTime, prevout.n, nTimeTx,
-            targetProofOfStake.ToString().c_str(), hashProofOfStake.ToString().c_str());
-    }
-
-    // Now check if proof-of-stake hash meets target protocol
-    if (CBigNum(hashProofOfStake) > bnCoinDayWeight * bnTargetPerCoinDay)
-        return false;
-    if (fDebug && !fPrintProofOfStake)
-    {
-        printf("CheckStakeKernelHash() : using modifier 0x%016" PRIx64 " at height=%d timestamp=%s for block from height=%d timestamp=%s\n",
-            nStakeModifier, nStakeModifierHeight, 
-            DateTimeStrFormat(nStakeModifierTime).c_str(),
-            mapBlockIndex[hashBlockFrom]->nHeight,
-            DateTimeStrFormat(blockFrom.GetBlockTime()).c_str());
-        printf("CheckStakeKernelHash() : pass modifier=0x%016" PRIx64 " nTimeBlockFrom=%u nTxPrevOffset=%u nTimeTxPrev=%u nPrevout=%u nTimeTx=%u hashTarget=%s hashProof=%s\n",
-            nStakeModifier,
-            nTimeBlockFrom, nTxPrevOffset, txPrev.nTime, prevout.n, nTimeTx,
-            targetProofOfStake.ToString().c_str(), hashProofOfStake.ToString().c_str());
-    }
-    return true;
+		// if stake hash does not meet the target then continue to next iteration
+		if(!stakeTargetHit(hashProofOfStake, (int64)nTimeTx - nTxPrevTime, nValueIn, bnTargetPerCoinDay))
+			continue;
+		
+		fSuccess = true; // if we make it this far then we have successfully created a stake hash 
+		nTimeTx = nTryTime;
+		
+		if (fDebug || fPrintProofOfStake)
+		{
+			printf("CheckStakeKernelHash() : using modifier 0x%016"PRI64x" at height=%d timestamp=%s for block from height=%d timestamp=%s\n",
+				nStakeModifier, nStakeModifierHeight, 
+				DateTimeStrFormat(nStakeModifierTime).c_str(),
+				mapBlockIndex[blockFrom.GetHash()]->nHeight,
+				DateTimeStrFormat(blockFrom.GetBlockTime()).c_str());
+			printf("CheckStakeKernelHash() : pass protocol=%s modifier=0x%016"PRI64x" nTimeBlockFrom=%u nTxPrevOffset=%u nTimeTxPrev=%u nPrevout=%u nTimeTx=%u hashProof=%s\n",
+				"0.3",
+				nStakeModifier,
+				nTimeBlockFrom, nTxPrevOffset, nTxPrevTime, prevout.n, nTryTime,
+				hashProofOfStake.ToString().c_str());
+		}
+    mapHashedBlocks[nBestHeight] = GetTime(); //store a time stamp of when we last hashed on this block
++    return fSuccess;
 }
 
 // Scan given kernel for solution
@@ -493,9 +503,10 @@ bool CheckProofOfStake(const CTransaction& tx, unsigned int nBits, uint256& hash
     if (!block.ReadFromDisk(txindex.pos.nFile, txindex.pos.nBlockPos, false))
         return fDebug? error("CheckProofOfStake() : read block failed") : false; // unable to read block of previous transaction
 
-    if (!CheckStakeKernelHash(nBits, block, txindex.pos.nTxPos - txindex.pos.nBlockPos, txPrev, txin.prevout, tx.nTime, hashProofOfStake, targetProofOfStake, fDebug))
-        return tx.DoS(1, error("CheckProofOfStake() : INFO: check kernel failed on coinstake %s, hashProof=%s", tx.GetHash().ToString().c_str(), hashProofOfStake.ToString().c_str())); // may occur during initial download or if behind on block chain sync
-
+    unsigned int nInterval = 0;
+	unsigned int nTxTime = tx.nTime;
+    if (!CheckStakeKernelHash(nBits, block, txindex.pos.nTxPos - txindex.pos.nBlockPos, txPrev, txin.prevout, nTxTime, nInterval, true, hashProofOfStake, fDebug))
+         return tx.DoS(1, error("CheckProofOfStake() : INFO: check kernel failed on coinstake %s, hashProof=%s", tx.GetHash().ToString().c_str(), hashProofOfStake.ToString().c_str())); // may occur during initial download or if behind on block chain sync
     return true;
 }
 
