@@ -1,5 +1,6 @@
-// Copyright (c) 2012-2013 The scryptic developers
+// Copyright (c) 2012-2013 The novacoin developers
 // Copyright (c) 2013-2015 The scryptic developers
+// Copyright (c) 2016 The Hyperstake developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 // Distributed under the MIT/X11 software license, see the accompanying
@@ -304,44 +305,39 @@ bool ComputeNextStakeModifier(const CBlockIndex* pindexCurrent, uint64_t& nStake
 
 // The stake modifier used to hash for a stake kernel is chosen as the stake
 // modifier about a selection interval later than the coin generating the kernel
-static bool GetKernelStakeModifier(uint256 hashBlockFrom, uint64_t& nStakeModifier, int& nStakeModifierHeight, int64_t& nStakeModifierTime, bool fPrintProofOfStake)
+/** litestake by Presstab
+I redesigned the hashing iteration in a few ways. 
+
+Code Reorginization - Instead of iterating the hashing in wallet.cpp, it is iterated in kernel.cpp inside of checkstakekernelhash, this allows
+the iteration to not need to initialize the variables for every iteration. This is also true for the stake modifier, which was previously
+calculated for each iteration. 
+
+liteStake - Previously the staking process would continuosly rehash the same hashes over and over, needlessly taking up valuable CPU power.
+I have added a std::map that tracks the block height and the last time the wallet hashed on this height. Depending on your staking settings,
+the wallet will not begin a new round of hashing until after a certain amount of time has passed, or a new block is accepted. This time delay
+can be found in main.cpp bitcoinminer(). This means that there will be 1-5 seconds of heavier CPU use once every few minutes, compared to
+continued heavy CPU use.
+
+Staking Modes - This allows the user to decide how much time they want to hash into the future and past. HYP has a max time drift of 15 minutes.
+The aggressive mode allows the user to hash 10 minutes into the future and 10 into the past. This will affect the chains timing a bit, and also
+might make difficulty more volatile in the short run. In my opinion it is more dangerous to allow a creative coder to do these same accepted
+practices without letting general users do the same.
+**/
+uint256 stakeHash(unsigned int nTimeTx, unsigned int nTxPrevTime, CDataStream ss, unsigned int prevoutIndex, unsigned int nTxPrevOffset, unsigned int nTimeBlockFrom)
 {
-    nStakeModifier = 0;
-    if (!mapBlockIndex.count(hashBlockFrom))
-        return error("GetKernelStakeModifier() : block not indexed");
-    const CBlockIndex* pindexFrom = mapBlockIndex[hashBlockFrom];
-    nStakeModifierHeight = pindexFrom->nHeight;
-    nStakeModifierTime = pindexFrom->GetBlockTime();
-    int64_t nStakeModifierSelectionInterval = GetStakeModifierSelectionInterval();
-    const CBlockIndex* pindex = pindexFrom;
-    // loop to find the stake modifier later by a selection interval
-    while (nStakeModifierTime < pindexFrom->GetBlockTime() + nStakeModifierSelectionInterval)
-    {
-        if (!pindex->pnext)
-        {   // reached best block; may happen if node is behind on block chain
-            if (fPrintProofOfStake || (pindex->GetBlockTime() + nStakeMinAge - nStakeModifierSelectionInterval > GetAdjustedTime()))
-                return error("GetKernelStakeModifier() : reached best block %s at height %d from block %s",
-                    pindex->GetBlockHash().ToString().c_str(), pindex->nHeight, hashBlockFrom.ToString().c_str());
-            else
-                return false;
-        }
-        pindex = pindex->pnext;
-        if (pindex->GeneratedStakeModifier())
-        {
-            nStakeModifierHeight = pindex->nHeight;
-            nStakeModifierTime = pindex->GetBlockTime();
-        }
-    }
-    nStakeModifier = pindex->nStakeModifier;
-    return true;
+	ss << nTimeBlockFrom << nTxPrevOffset << nTxPrevTime << prevoutIndex << nTimeTx;
+	return Hash(ss.begin(), ss.end());
 }
-
-bool GetKernelStakeModifier(uint256 hashBlockFrom, uint64_t& nStakeModifier)
-{
-    int nStakeModifierHeight;
-    int64_t nStakeModifierTime;
-
-    return GetKernelStakeModifier(hashBlockFrom, nStakeModifier, nStakeModifierHeight, nStakeModifierTime, false);
+ 
+//HyperStake test hash vs target
+bool stakeTargetHit(uint256 hashProofOfStake, unsigned int nAge, int64 nValueIn, CBigNum bnTargetPerCoinDay)
+{	
+	//get the stake weight
+	int64 nTimeWeight = min((int64)nAge, (int64)nStakeMaxAge) - nStakeMinAge;
+	CBigNum bnCoinDayWeight = CBigNum(nValueIn) * nTimeWeight / COIN / (24 * 60 * 60);
+	
+	// Now check if proof-of-stake hash meets target protocol
+	return (CBigNum(hashProofOfStake) < bnCoinDayWeight * bnTargetPerCoinDay);
 }
 
 
