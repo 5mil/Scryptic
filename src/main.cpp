@@ -69,7 +69,7 @@ map<uint256, uint256> mapProofOfStake;
 
 map<uint256, CTransaction> mapOrphanTransactions;
 map<uint256, set<uint256> > mapOrphanTransactionsByPrev;
-
+map<unsigned int, unsigned int> mapHashedBlocks;
 // Constant stuff for coinbase transactions we create:
 CScript COINBASE_FLAGS;
 
@@ -2081,7 +2081,10 @@ bool CTransaction::GetCoinAge(CTxDB& txdb, uint64_t& nCoinAge) const
         if (!txPrev.ReadFromDisk(txdb, txin.prevout, txindex))
             continue;  // previous transaction not in main chain
         if (nTime < txPrev.nTime)
-            return false;  // Transaction timestamp violation
+         {
+           printf("GetCoinAge: Timestamp Violation: txtime less than txPrev.nTime");
+             return false;  // Transaction timestamp violation
+        }
 
         // Read block header
         CBlock block;
